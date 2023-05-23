@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.13.0",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@types/three": "^0.152.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
@@ -24,6 +26,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.59.3",
+    "three": "^0.152.2",
     "typescript": "5.0.2"
   },
   "devDependencies": {
