@@ -1,10 +1,16 @@
 import React, { FC } from "react"
 import Link from 'next/link';
+import { Button } from "antd";
+
+
+
 const Main: FC = () => {
   return (<>
-    <Link href="/main">
-      <a>Go to Main Page</a>
-    </Link>
+    <Button type="primary"  >
+      <Link href="/">
+       Go to Main Page
+      </Link>
+    </Button>
   </>)
 }
 

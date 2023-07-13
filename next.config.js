@@ -16,15 +16,18 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  experimental:{
+    appDir: true
+  },
   swcMinify: true,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
+
     // config.module.rules.push({
     //   test: /\.css$/,
     //   use: ['style-loader', 'css-loader'],
     // });
 
-    // // // 配置Less加载器
     // config.module.rules.push({
     //   test: /\.less$/,
     //   use: ['style-loader', 'css-loader', 'less-loader'],
@@ -32,6 +35,9 @@ const nextConfig = {
 
     return config;
   },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  }
 }
 
 

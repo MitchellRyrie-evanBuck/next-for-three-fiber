@@ -1,12 +1,12 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 import '@/styles/index.css'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
 
-export default function App({ Component, pageProps, }: AppProps) {
+export default function App( { Component, pageProps, ...result  }: AppProps) {
   const router = useRouter();
   // console.log(router);
   return (
