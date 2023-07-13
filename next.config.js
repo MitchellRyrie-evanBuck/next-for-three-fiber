@@ -1,35 +1,37 @@
 const path = require('path');
 
-const withCSS = require('@zeit/next-css')
-const withLess = require('@zeit/next-less')
-const withSass = require("@zeit/next-sass");
-
-// const CSS = withCSS({
-//   cssModules: true,
-//   cssLoaderOptions: {
-//     importLoaders: 1,
-//     localIdentName: "[local]___[hash:base64:5]",
-//   },
-//   ...withLess(
-//     withSass({
-//       lessLoaderOptions: {
-//         javascriptEnabled: true,
-//       },
-//     })
-//   ),
-// });
-
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
-  // sassOptions: {
-    // includePaths: [path.join(__dirname, 'styles')],
+  reactStrictMode: true,
+  // lessLoaderOptions: {
+  //   javascriptEnabled: true,
+  //   includePaths: [path.join(__dirname, 'styles')],
   // },
-  webpack: config => {
+  distDir: 'build',
+  publicRuntimeConfig: {
+    staticFolder: '/static',
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  swcMinify: true,
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
+    // config.module.rules.push({
+    //   test: /\.css$/,
+    //   use: ['style-loader', 'css-loader'],
+    // });
+
+    // // // 配置Less加载器
+    // config.module.rules.push({
+    //   test: /\.less$/,
+    //   use: ['style-loader', 'css-loader', 'less-loader'],
+    // });
+
     return config;
   },
-
 }
 
 
