@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 
 const Header: FC = () => {
-  return <div>
+  return <div className='text-center bg-slate-500' >
     header
   </div>
 }

@@ -9,8 +9,8 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <>
-      <div className="bg-blue-700 text-white p-4">
-        This is a blue div with white text.
+      <div className="bg-gray-700 text-white p-4">
+        content
       </div>
     </>
   )
