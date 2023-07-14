@@ -1,5 +1,5 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
-import Header from '@/components/layout/header'
+import Header from '@/components/layout/header/header'
 
 export default function NotFind() {
   return (

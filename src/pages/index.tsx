@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <>
       <div className={`${styles.container} text-white p-4`}>
-        content
       </div>
     </>
   )

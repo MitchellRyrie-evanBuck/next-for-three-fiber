@@ -1,6 +1,6 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
-import Header from '@/components/layout/header'
-import Footer from '@/components/layout/footer'
+import Header from '@/components/layout/header/header'
+import Footer from '@/components/layout/footer/footer'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

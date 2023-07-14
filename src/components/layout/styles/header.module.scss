@@ -2,5 +2,14 @@
 .header{
   height: var(--head-height);
   line-height: var(--foot-height);
-
+  background-color: transparent;
+  filter: blur(10);
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 50px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.headerLeft {
+  display: flex;
 }
