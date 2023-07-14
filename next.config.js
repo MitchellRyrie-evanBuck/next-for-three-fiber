@@ -32,6 +32,11 @@ const nextConfig = {
     //   test: /\.less$/,
     //   use: ['style-loader', 'css-loader', 'less-loader'],
     // });
+    config.module.rules.push({
+      test: /\.md$/,
+      use: ['raw-loader', 'remark-loader'],
+    });
+
 
     return config;
   },
