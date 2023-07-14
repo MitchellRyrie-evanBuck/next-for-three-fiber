@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
-
+import Layout from '@/components/layout'
 export default function App( { Component, pageProps, ...result  }: AppProps) {
   const router = useRouter();
   // console.log(router);
@@ -24,7 +24,9 @@ export default function App( { Component, pageProps, ...result  }: AppProps) {
         <NextScript />
       </body>
     </Html> */}
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }

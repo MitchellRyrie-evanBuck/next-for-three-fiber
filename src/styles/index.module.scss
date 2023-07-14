@@ -1,0 +1,6 @@
+.container{
+  min-height: calc(100vh -  var(--foot-height));
+  box-sizing: border-box;
+  padding-top: var(--head-height);
+  background-color: gray;
+}
