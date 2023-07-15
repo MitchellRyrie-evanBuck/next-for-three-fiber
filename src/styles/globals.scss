@@ -40,11 +40,16 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-  --head-height: 70px;
+  --head-height: 56px;
   --foot-height: 56px;
   --primary: #f7f9fbe6;
   --primary-rbg: 247, 249, 251;
+  --font-color: #000;
 
+
+    --lighting-size: 300px;
+    --lighting-color: #000;
+    --lighting-highlight-color: #d8b4fe;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,12 +106,23 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--primary-rbg));
-  font-family: var(--font-mono);
+  // font-family: var(--font-mono);
+  font-family: Helvetica;
+    --x: 0px;
+    --y: 0px;
 }
 
-a {
-  color: inherit;
+a , div{
   text-decoration: none;
+  background-image: radial-gradient(var(--lighting-highlight-color), var(--lighting-color), var(--lighting-color));
+  background-size: var(--lighting-size) var(--lighting-size);
+  background-repeat: no-repeat;
+  background-position-x: calc(var(--x) - var(--positionX) - calc(var(--lighting-size) / 2));
+  background-position-y: calc(var(--y) - var(--positionY) - calc(var(--lighting-size) / 2));
+  background-color: var(--lighting-color);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 @media (prefers-color-scheme: dark) {

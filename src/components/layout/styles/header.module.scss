@@ -1,9 +1,8 @@
-
-.header{
+.header {
   height: var(--head-height);
   line-height: var(--foot-height);
   background-color: var(--primary);
-  backdrop-filter: blur(6px);
+  backdrop-filter: saturate(180%) blur(10px);
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +12,12 @@
   padding-inline: 50px;
   align-items: center;
   box-sizing: border-box;
+  --globalnav-backdrop-filter: saturate(180%) blur(20px);
+  --globalnav-background: rgba(251, 251, 253, .8);
+  background: var(--globalnav-background);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.01);
 }
+
 .headerLeft {
   display: flex;
 }

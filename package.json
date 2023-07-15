@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.13.0",
+    "@types/aos": "^3.0.4",
     "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -18,6 +19,7 @@
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "ahooks": "^3.7.6",
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.14",
     "babel-plugin-import": "^1.13.6",
     "css-loader": "^6.8.1",
@@ -31,6 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
+    "rehype-raw": "^6.1.1",
     "remark": "^14.0.3",
     "remark-gfm": "^3.0.1",
     "remark-loader": "^5.0.0",
@@ -38,6 +41,7 @@
     "style-loader": "^3.3.3",
     "tailwindcss": "^3.3.2",
     "three": "^0.152.2",
+    "typed.js": "^2.0.16",
     "typescript": "5.0.2"
   },
   "devDependencies": {

@@ -1,5 +1,34 @@
-.container{
-  min-height: calc(100vh - var(--head-height) - var(--foot-height));
+.container {
+  min-height: calc(100vh - var(--head-height) - var(--foot-height) - 56px );
+  // display: flex;
+  // align-items: flex-start;
+  margin: var(--head-height) auto;
+  padding: 0 24px;
+  // max-width: 1392px;
   box-sizing: border-box;
-  margin-top: var(--head-height);
+}
+.defaultSidebar{
+    position: fixed;
+    top: var(--head-height);
+    left: var(--head-height);
+    width: 184px;
+    max-height: calc(100vh - var(--head-height));
+    padding-top: 20px;
+    padding-bottom: 24px;
+    padding-inline-start: 8px;
+    padding-inline-end: 32px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.defaultSidebarGroupDoc {
+    position: fixed;
+    top: var(--head-height);
+    right: var(--head-height);
+    width: 184px;
+    margin-inline-start: 24px;
+    max-height: 80vh;
+    overflow: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    
 }
