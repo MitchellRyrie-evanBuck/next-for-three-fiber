@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     "build/types/**/*.ts"
-  ],
+, "src/hooks/useGtoSection.js"  ],
   "exclude": [
     "node_modules"
   ]

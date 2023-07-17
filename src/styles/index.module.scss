@@ -1,12 +1,15 @@
 .container {
   min-height: calc(100vh - var(--head-height) - var(--foot-height) - 56px );
-  // display: flex;
-  // align-items: flex-start;
   margin: var(--head-height) auto;
   padding: 0 24px;
-  // max-width: 1392px;
   box-sizing: border-box;
 }
+
+.rootCOntainer{
+  min-height: 100vh;
+  width: 100vw;
+}
+
 .defaultSidebar{
     position: fixed;
     top: var(--head-height);

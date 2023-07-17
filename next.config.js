@@ -42,7 +42,10 @@ const nextConfig = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-  }
+  },
+   images: {
+    domains: ['images.unsplash.com'], // Add the hostname of the external domain here
+  },
 }
 
 
