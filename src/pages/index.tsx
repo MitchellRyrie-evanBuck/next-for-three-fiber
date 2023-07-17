@@ -7,7 +7,7 @@ import second from "@/static/images/second.png"
 import third from "@/static/images/third.png"
 import fourth from "@/static/images/fourth.png"
 import fifth from "@/static/images/fifth.png"
-
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -121,7 +121,7 @@ export default function Home() {
                     <Image src={item.url} className='imgs h-full w-full  inset-0' alt='' ></Image>
                     <div className="section-heading">
                       <h2 className='text-white' >{item.title}</h2>
-                      {item.key == 'first' && <h3 className="open">open</h3>}
+                      {item.key == 'first' && <Link href="/main" className="open">open</Link>}
                     </div>
                   </div>
                 </div>
