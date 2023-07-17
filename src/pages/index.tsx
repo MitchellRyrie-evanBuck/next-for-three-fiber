@@ -156,7 +156,6 @@ export default function Home() {
           <div className="inner">
             <div className="bg">
               <Image src={fourth} className='h-full w-full absolute inset-0' alt='' ></Image>
-
               <h2 className="section-heading">Animation platform</h2>
             </div>
           </div>

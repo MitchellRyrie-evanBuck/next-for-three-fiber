@@ -72,6 +72,8 @@ section {
 
     h2 {
       z-index: 2;
+  color: #fff;
+
     }
 
     .clip-text {
@@ -113,4 +115,5 @@ section {
 
 h2 * {
   will-change: transform;
+  color: #fff;
 }
