@@ -151,7 +151,7 @@ body {
 
 }
 
-a {
+a, .best {
   text-decoration: none;
   background-image: radial-gradient(var(--lighting-highlight-color), var(--lighting-color), var(--lighting-color));
   background-size: var(--lighting-size) var(--lighting-size);

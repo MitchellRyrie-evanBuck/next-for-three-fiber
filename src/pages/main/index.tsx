@@ -39,10 +39,10 @@ export default function Home() {
           rehypePlugins={[rehypeRaw]}
         /> */}
         <h1 className="typed-text text-center font-600 text-3xl pt-40 h-140px"></h1>
-        <div className='text-center font-600 text-2xl' >
+        <div className='text-center font-600 text-2xl best' >
           My name is Anthony Liu, and I am a web developer who enjoys exploring unknown fields.
         </div>
-        <div className='text-center font-600 text-2xl' >
+        <div className='best text-center font-600 text-2xl' >
           I am glad you can see my blog and wish you a happy day.
 
         </div>

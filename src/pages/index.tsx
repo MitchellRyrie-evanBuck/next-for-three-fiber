@@ -8,7 +8,7 @@ import third from "@/static/images/third.png"
 import fourth from "@/static/images/fourth.png"
 import fifth from "@/static/images/fifth.png"
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 export default function Home() {
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Home() {
         dFactor = fromTop ? -1 : 1,
         tl = gsap.timeline({
           defaults: { duration: 1.25, ease: "power1.inOut" },
-          onComplete: () => animating = false
+          onComplete: () => { animating = false }
         });
       if (currentIndex >= 0) {
         // The first time this function runs, current is -1
@@ -78,27 +78,27 @@ export default function Home() {
     {
       key: 'first',
       url: first,
-      title: 'Scroll down'
+      title: 'Dream big, work hard, stay focused.'
     },
     {
       key: 'second',
       url: second,
-      title: 'Animated with GSAP'
+      title: 'Dont watch the clock; do what it does.Keep going'
     },
     {
       key: 'third',
       url: third,
-      title: 'GreenSock'
+      title: 'The best way to predict the future is to create it.'
     },
     {
       key: 'fourth',
       url: fourth,
-      title: 'Animation platform'
+      title: 'Do what you love, love what you do.'
     },
     {
       key: 'fifth',
       url: fifth,
-      title: 'Keep scrolling'
+      title: 'You are the author of your own story.'
     },
 
   ]
@@ -106,10 +106,9 @@ export default function Home() {
   return (
     <div className='main-container'>
       <div className='header ' >
-        <div className='text-white' >Animated Sections</div>
-        <div className='text-white'>Original By Brian</div>
+        <div className='text-white' >A pound of sunset</div>
+        <div className='text-white cursor-pointer'>Github</div>
       </div>
-
       {
         Applist.map((item, index) => {
           return (
@@ -118,10 +117,22 @@ export default function Home() {
                 <div className="inner">
                   <div className="bg " >
                     <div className="overflow"></div>
-                    <Image src={item.url} className='imgs h-full w-full  inset-0' alt='' ></Image>
+                    <Image src={item.url} priority={true} className='imgs h-full w-full  inset-0' alt='' ></Image>
                     <div className="section-heading">
-                      <h2 className='text-white' >{item.title}</h2>
-                      {item.key == 'first' && <Link href="/main" className="open">open</Link>}
+                      <h2 className='text-white best' >{item.title}</h2>
+
+                      <Link href="/main" className="open">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          className='box '
+                        >
+                          <span className='mr-1.5'>OPEN</span><span className='ml-1.5'>BLOG</span>
+                        </motion.div>
+                      </Link>
+                      <div className="arrow-container">
+                        <div className="arrow"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -130,61 +141,6 @@ export default function Home() {
           )
         })
       }
-
-      {/* <section className="first">
-        <div className="outer">
-          <div className="inner">
-            <div className="bg one" >
-              <Image src={first} className='imgs h-full w-full absolute inset-0' alt='' ></Image>
-              <h2 className="section-heading">Scroll down</h2>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      <section className="second">
-        <div className="outer">
-          <div className="inner">
-            <div className="bg">
-              <Image src={second} className='h-full w-full absolute inset-0' alt='' ></Image>
-
-              <h2 className="section-heading">Animated with GSAP</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="third">
-        <div className="outer">
-          <div className="inner">
-            <div className="bg">
-              <Image src={third} className='h-full w-full absolute inset-0' alt='' ></Image>
-
-              <h2 className="section-heading">GreenSock</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="fourth">
-        <div className="outer">
-          <div className="inner">
-            <div className="bg">
-              <Image src={fourth} className='h-full w-full absolute inset-0' alt='' ></Image>
-              <h2 className="section-heading">Animation platform</h2>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="fifth">
-        <div className="outer">
-          <div className="inner">
-            <div className="bg">
-              <Image src={fifth} className='h-full w-full absolute inset-0' alt='' ></Image>
-
-              <h2 className="section-heading">Keep scrolling</h2>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </div>
   )
 }
