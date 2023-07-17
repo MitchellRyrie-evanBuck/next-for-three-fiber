@@ -20,7 +20,7 @@ const nextConfig = {
     appDir: true
   },
   swcMinify: true,
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config, options) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
 
     // config.module.rules.push({
@@ -36,6 +36,24 @@ const nextConfig = {
       test: /\.md$/,
       use: ['raw-loader', 'remark-loader'],
     });
+
+    config.module.rules.push(
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          // {
+          //   loader: 'url-loader', options: {
+          //     limit: config.inlineImageLimit,
+          //     fallback: 'file-loader',
+          //     publicPath: `${config.assetPrefix || '/_next/static/images/'}`,
+          //     outputPath: `${options.isServer ? "../" : ""}static/images/`,
+          //     name: "[name]-[hash].[ext]",
+          //     esModule: false
+          //   }
+          // }
+        ]
+      },
+    )
 
 
     return config;

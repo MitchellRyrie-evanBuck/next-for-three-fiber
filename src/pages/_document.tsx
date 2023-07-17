@@ -17,7 +17,10 @@ class MyDocument extends Document {
         <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js' ></script>
         <script src='https://assets.codepen.io/16327/Observer.min.js' ></script>
         <script src='https://assets.codepen.io/16327/gsap-latest-beta.min.js' ></script>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' ></link>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        />
         <Head>
            {/* <Header /> */}
         </Head>

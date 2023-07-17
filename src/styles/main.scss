@@ -5,20 +5,22 @@ $bg-gradient: linear-gradient(180deg,
   rgba(0, 0, 0, 0.6) 0%,
   rgba(0, 0, 0, 0.3) 100%);
 
-a {
-  color: #fff;
-  text-decoration: none;
-}
 
-body {
+.main-container {
   margin: 0;
   padding: 0;
   height: 100vh;
+  width: 100vw;
   color: white;
   background: black;
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
 }
+a {
+  color: #fff !important;
+  text-decoration: none;
+}
+
 
 h2 {
   font-size: clamp(1rem, 5vw, 5rem);
@@ -26,12 +28,12 @@ h2 {
   text-align: center;
   letter-spacing: 0.5em;
   margin-right: -0.5em;
-  color: hsl(0, 0, 80%);
+  color: hsl(0, 0%, 80%) !important;
   width: 90vw;
   max-width: 1200px;
 }
 
-header {
+.header {
   position: fixed;
   display: flex;
   align-items: center;
@@ -51,69 +53,87 @@ section {
   top: 0;
   position: fixed;
   visibility: hidden;
+}
 
-  .outer,
-  .inner {
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
-  }
+section .outer,
+section .inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
 
-  .bg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    background-size: cover;
-    background-position: center;
+section .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
 
-    h2 {
-      z-index: 2;
+section .bg h2 {
   color: #fff;
-
-    }
-
-    .clip-text {
-      overflow: hidden;
-    }
-  }
+  z-index: 2;
 }
 
-.first {
-  .bg {
-    background-image: $bg-gradient;
-    }
+section .bg .clip-text {
+  overflow: hidden;
 }
 
-.second {
-  .bg {
-    background-image: $bg-gradient;
-    }
+.bg {
+  position: relative;
 }
 
-.third {
-  .bg {
-    background-image: $bg-gradient;
-    }
-}
+.bg .imgs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 
-.fourth {
-  .bg {
-    background-image: $bg-gradient;
-    }
-}
-
-.fifth {
-  .bg {
-    background-image: $bg-gradient;
-    background-position: 50% 45%;
-  }
 }
 
 h2 * {
   will-change: transform;
-  color: #fff;
+}
+
+.section-heading {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 3;
+}
+
+.open {
+  width: 150px;
+  height: 50px;
+  border: #fff 1px solid;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+
+}
+
+.open:hover {
+  filter: brightness(1.2);
+  transition: 0.5s;
+}
+
+.overflow {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+}
+
+.second .bg .imgs {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
 }
