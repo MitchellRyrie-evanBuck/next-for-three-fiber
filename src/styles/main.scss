@@ -131,11 +131,11 @@ h2 * {
 
 .arrow-container {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 60px;
   width: 100px;
   left: 50%;
   transform: translateX(-50%);
