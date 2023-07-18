@@ -124,7 +124,6 @@ export default function Home() {
                     <Image src={item.url} priority={true} className='imgs h-full w-full  inset-0' alt='' ></Image>
                     <div className="section-heading">
                       <h2 className='text-white best' >{item.title}</h2>
-
                       <Link href="/main" className="open">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -134,7 +133,6 @@ export default function Home() {
                           <span className='mr-1.5'>OPEN</span><span className='ml-1.5'>BLOG</span>
                         </motion.div>
                       </Link>
-                      
                       <div className="arrow-container">
                         {/* <div className="arrow"></div> */}
                         <motion.div
