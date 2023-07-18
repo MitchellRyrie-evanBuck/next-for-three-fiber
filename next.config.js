@@ -38,21 +38,18 @@ const nextConfig = {
     });
 
     config.module.rules.push(
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          // {
-          //   loader: 'url-loader', options: {
-          //     limit: config.inlineImageLimit,
-          //     fallback: 'file-loader',
-          //     publicPath: `${config.assetPrefix || '/_next/static/images/'}`,
-          //     outputPath: `${options.isServer ? "../" : ""}static/images/`,
-          //     name: "[name]-[hash].[ext]",
-          //     esModule: false
-          //   }
-          // }
-        ]
-      },
+      // {
+      //   test: /\.(gif|svg)$/i,
+      //   use: [
+      //     {
+      //      options: {
+      //         limit: config.inlineImageLimit,
+      //         publicPath: `${config.assetPrefix || '/_next/static/'}`,
+      //         outputPath: `${options.isServer ? "../" : ""}static/`,
+      //       }
+      //     }
+      //   ]
+      // },
     )
 
 
@@ -62,7 +59,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
    images: {
-    domains: ['images.unsplash.com'], // Add the hostname of the external domain here
+     domains: ['images.unsplash.com','static/images'], // Add the hostname of the external domain here
   },
 }
 

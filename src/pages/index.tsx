@@ -9,9 +9,13 @@ import fourth from "@/static/images/fourth.png"
 import fifth from "@/static/images/fifth.png"
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-export default function Home() {
+import ArrowIcon from '@/static/svg/arrow-down-bold';
 
+
+
+export default function Home() {
   useEffect(() => {
+    console.log('useEffect')
     gsap.registerPlugin(Observer);
     // 这里放置其他与 Observer 相关的初始化代码
     let sections = document.querySelectorAll("section"),
@@ -72,7 +76,7 @@ export default function Home() {
       preventDefault: true
     });
     gotoSection(0, 1);
-  },);
+  },[]);
 
   const Applist = [
     {
@@ -130,8 +134,15 @@ export default function Home() {
                           <span className='mr-1.5'>OPEN</span><span className='ml-1.5'>BLOG</span>
                         </motion.div>
                       </Link>
+                      
                       <div className="arrow-container">
-                        <div className="arrow"></div>
+                        {/* <div className="arrow"></div> */}
+                        <motion.div
+                          animate={{ y: [0, -20, 0] }} // 在 y 轴上进行跳动动画
+                          transition={{ duration: 1, repeat: Infinity }} // 持续时间为 1 秒，无限重复
+                        >
+                          <ArrowIcon />
+                        </motion.div>
                       </div>
                     </div>
                   </div>
