@@ -59,7 +59,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
    images: {
-     domains: ['images.unsplash.com','static/images'], // Add the hostname of the external domain here
+     domains: ['images.unsplash.com', 'static/images', 'source.unsplash.com'], // Add the hostname of the external domain here
   },
 }
 
