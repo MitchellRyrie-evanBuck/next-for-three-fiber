@@ -23,7 +23,7 @@ const NavItem: FC<InNavItem> = ({ href, children }) => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <span className={`${isActive ? styles.dotActive : styles.dotInactive}`} >{children}</span>
+        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black`} >{children}</span>
       </motion.div>
     </Link>
   );
@@ -35,14 +35,16 @@ const Header: FC = () => {
   const router = useRouter()
   return <div className={`${styles.header}  `} >
     <div className={`${styles.headerLeft} h-full flex items-center `} data-aos="fade-right" >
-      <Image src={userLogo} className='h-9 w-9 rounded-full ' alt="" />
+      <Link href="/" >
+        <Image src={userLogo} className='h-9 w-9 rounded-full ' alt="" />
+      </Link>
       <div className='pl-6 font-600 text-xl ' >  </div>
     </div>
 
-    <div className="flex items-center justify-between p-4 text-black">
-      <NavItem href="/">Home</NavItem>
+    <div className="flex items-center justify-between p-4 ">
+      <NavItem href="/main">Home</NavItem>
       <NavItem href="/threefiber">Three/fiber</NavItem>
-      <NavItem href="/doc">Doc</NavItem>
+      <NavItem href="/note">Doc</NavItem>
       <NavItem href="/github">Github</NavItem>
     </div>
   </div>
