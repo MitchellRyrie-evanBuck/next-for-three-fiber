@@ -16,10 +16,15 @@ const FiberComponents = () => {
   const itemsPerLoad = 20;
 
   useEffect(() => {
-    fetchCases(0);
+    console.log('useEffect---->', window)
+    if (typeof window !== 'undefined') {
+      // 这里的代码只会在客户端执行
+      fetchCases(0);
+    }
   }, []);
   
   const handleLoadMore = () => {
+    setLoading(true);
     const startIndex = cases.length;
     fetchCases(startIndex);
   };
@@ -33,6 +38,7 @@ const FiberComponents = () => {
         },
       });
       const newCases = response.data;
+      console.log('请求数据---->')
       setCases((prevCases) => [...prevCases, ...newCases]);
       setLoading(false);
       setHasMore(newCases.length === itemsPerLoad);
@@ -42,30 +48,24 @@ const FiberComponents = () => {
   };
 
   return (
-    <>
-      {/* <div className="waterfall-layout">
-        {cases.map((caseItem) => (
-          <Link data-aos="fade-up" key={caseItem.id} href={`/threefiber/three/${caseItem.id}`}>
-            <div className="waterfall-item">
-              <img src={caseItem.imageUrl} alt={caseItem.title} />
-              <h3>{caseItem.title}</h3>
-            </div>
-          </Link>
-        ))}
-      </div> */}
-      <div className={styles.container}>
-        <InfiniteScroll
+    <div className={styles.container}>
+      <div className='h-80 w-full bg-gray-200 mt-10'>
+
+      </div>
+      <div >
+        {/* <InfiniteScroll
           dataLength={cases.length}
           next={handleLoadMore}
           hasMore={hasMore}
           loader={<Skeleton count={itemsPerLoad} height={200} />}
           endMessage={<div>No more cases to load</div>}
-        >
+        > */}
           <Masonry
             breakpointCols={{
-              default: 3,
-              1100: 2,
-              700: 1,
+              default: 4,
+              1100: 4,
+              900: 3,
+              730: 2,
             }}
             className={styles.masonryGrid}
             columnClassName={styles.masonryGridColumn}
@@ -75,23 +75,26 @@ const FiberComponents = () => {
                 {loading ? (
                   <Skeleton height={200} />
                 ) : (
-                  <>
+                    <Link href={`/threefiber/three/${caseItem.id}`} >
                     <Image
-                      src={caseItem.imageUrl}
+                        style={{ width: 'auto', height: 'auto' }}
+                        width={300}
+                        height={200}
+                      src={`/threefiber/three/${caseItem.id}/${caseItem.imageUrl}`}
                       alt={caseItem.title}
-                      width={300}
-                      height={200}
                     />
                       <h3 className={styles['local-h3']} >{caseItem.title}</h3>
-                    {/* <p>{caseItem.details}</p> */}
-                  </>
+                  </Link>
                 )}
               </div>
             ))}
           </Masonry>
-        </InfiniteScroll>
+        {/* </InfiniteScroll> */}
       </div>
-    </>
+      <div className='flex justify-center cursor-pointer' >
+        加载更多
+      </div>
+    </div>
   );
 };
 

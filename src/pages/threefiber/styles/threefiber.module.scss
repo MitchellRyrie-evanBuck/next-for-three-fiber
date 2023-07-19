@@ -5,27 +5,26 @@
 }
 
 .masonryGrid {
+  margin-top: 20px;
   display: flex;
-  margin-left: -20px;
-  /* Adjust the margin as needed */
   width: auto;
 }
 
 .masonryGridColumn {
-  padding-left: 20px;
-  /* Adjust the padding as needed */
   background-clip: padding-box;
 }
 
 .masonryItem {
   margin-bottom: 20px;
-  /* Adjust the margin as needed */
   padding: 10px;
   background-color: #f0f0f0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
+  max-height: 300px;
+  max-width: 200px;
+  overflow: hidden;
 }
 
 .masonryItem:hover {

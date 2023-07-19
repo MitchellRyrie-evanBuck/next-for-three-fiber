@@ -15,6 +15,7 @@ import 'aos/dist/aos.css';
 export default function App( { Component, pageProps, ...result  }: AppProps) {
   const router = useRouter();
   useEffect(() => {
+    console.log(' AOS.init();')
     AOS.init();
   }, []);
 

@@ -1,7 +1,7 @@
 const path = require('path');
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   // lessLoaderOptions: {
   //   javascriptEnabled: true,
   //   includePaths: [path.join(__dirname, 'styles')],
@@ -17,7 +17,8 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   experimental:{
-    appDir: true
+    appDir: true,
+    // fastRefresh: false,
   },
   swcMinify: true,
   webpack: (config, options) => {

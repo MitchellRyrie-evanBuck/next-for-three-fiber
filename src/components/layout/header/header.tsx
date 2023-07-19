@@ -39,7 +39,7 @@ const Header: FC = () => {
       <div className='pl-6 font-600 text-xl ' >  </div>
     </div>
 
-    <div className="flex items-center justify-between p-4">
+    <div className="flex items-center justify-between p-4 text-black">
       <NavItem href="/">Home</NavItem>
       <NavItem href="/threefiber">Three/fiber</NavItem>
       <NavItem href="/doc">Doc</NavItem>
