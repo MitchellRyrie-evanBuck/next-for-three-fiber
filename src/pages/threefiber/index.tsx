@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Sipwer from './components/sipwer';
+import { motion } from 'framer-motion';
 
 const FiberComponents = () => {
   const [cases, setCases] = useState<{ id: string; title: string; imageUrl: string }[]>([]);
@@ -18,18 +19,8 @@ const FiberComponents = () => {
   const itemsPerLoad = 20;
 
   useEffect(() => {
-    console.log('useEffect---->', window)
-    if (typeof window !== 'undefined') {
-      // 这里的代码只会在客户端执行
-      fetchCases(0);
-    }
+    fetchCases(0);
   }, []);
-
-  const handleLoadMore = () => {
-    setLoading(true);
-    const startIndex = cases.length;
-    fetchCases(startIndex);
-  };
 
   const fetchCases = async (startIndex: number) => {
     try {
@@ -72,22 +63,35 @@ const FiberComponents = () => {
           columnClassName={styles.masonryGridColumn}
         >
           {cases.map((caseItem) => (
-            <div key={caseItem.id} className={styles.masonryItem}>
+            <motion.div 
+              key={caseItem.id} 
+              className={styles.masonryItem}
+              whileHover={{ scale: 1.04, translateY: -5 }}
+            >
               <Link href={`/threefiber/three/${caseItem.id}`} >
                 {loading ? <Skeleton height={170} containerClassName={`${styles['avatar-skeleton']}`} /> :
                   <div data-aos="fade-up" >
-                    <Image
-                      style={{ width: 'auto', height: 'auto' }}
-                      width={300}
-                      height={200}
-                      src={`/threefiber/three/${caseItem.id}/${caseItem.imageUrl}`}
-                      alt={caseItem.title}
-                    />
+                    <motion.div
+                      // whileHover={{ scale: 1.1 }}
+                      // transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className={`${styles['image-wrapper']}`}
+                    >
+                      <motion.img
+                        initial={{ scale: 1 }} // 初始大小为 1
+                        whileHover={{ scale: 1.2 }} // 悬停时放大到 1.2 倍
+                        style={{ width: 'auto', height: 'auto' }}
+                        width={300}
+                        height={200}
+                        src={`/threefiber/three/${caseItem.id}/${caseItem.imageUrl}`}
+                        alt={caseItem.title}
+                        className={`${styles.img} object-center object-cover w-full h-full truncate`}
+                      />
+                    </motion.div>
                     {loading ? <Skeleton height={50} /> : <h3 className={`${styles['local-h3']} best`} >{caseItem.title}</h3>}
                   </div>
                 }
               </Link>
-            </div>
+            </motion.div>
           ))}
         </Masonry>
         {/* </InfiniteScroll> */}
