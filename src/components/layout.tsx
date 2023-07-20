@@ -2,20 +2,80 @@ import Navbar from './layout/header/header'
 import Footer from './layout/footer/footer'
 import styles from '@/styles/index.module.scss'
 import { useRouter } from 'next/router'
+import { Element } from 'react-scroll';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const whiteList = ['/', 'note']
+  const [showHeader, setShowHeader] = useState(true);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isRoot, setIsRoot] = useState(false)
   const router = useRouter()
-  const isRoot = router.pathname === '/'
+  const [scrollDirection, setScrollDirection] = useState<number>(0); // 保存滚动方向，0表示初始状态
+
+  useEffect(() => {
+    setIsRoot(router.pathname === '/' ? true : false)
+    console.log('router----', router)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop < 100 || scrollTop < prevScrollY) {
+        setShowHeader(true); // 滚动距离小于100或向上滚动时显示头部
+      } else {
+        setShowHeader(false);
+      }
+      console.log('scrollTop----', scrollTop)
+      // 判断滚动方向
+      setScrollDirection(scrollTop > prevScrollY ? 1 : scrollTop < prevScrollY ? -1 : 0);
+      setPrevScrollY(scrollTop);
+    };
+    const handleTouchMove = (event: any) => {
+      const touchY = event.touches[0].clientY;
+      if (touchY > prevScrollY) {
+        setShowHeader(true); // 向上滑动时显示头部
+      }
+      console.log('touchY----', touchY)
+      setPrevScrollY(touchY);
+    };
+    // 监听滚动事件
+    window.addEventListener('scroll', handleScroll);
+    // 监听触摸事件
+    window.addEventListener('touchmove', handleTouchMove);
+    return () => {
+      // 移除滚动事件监听
+      window.removeEventListener('scroll', handleScroll);
+      // 移除触摸事件监听
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [prevScrollY]);
+
   return (
     <>
-      {!isRoot && <Navbar /> }
-      <main className={`${ !isRoot ? styles.container : styles.rootCOntainer }`} >
+      <AnimatePresence>
+        {!isRoot && showHeader &&
+          <motion.header
+            key="header"
+            initial={{ opacity: 1 }} // 头部可见时的初始状态
+            animate={{
+              opacity: showHeader ? (scrollDirection === -1 ? 1 : 0) : 0,
+            }} // 头部隐藏时的动画，根据scrollDirection控制透明度
+            transition={{ duration: 0.5 }} // 动画持续时间
+            exit={{ opacity: 0 }}
+          >
+            <Navbar />
+          </motion.header>
+        }
+      </AnimatePresence >
+      <Element name="app" className={`${!isRoot ? styles.container : styles.rootCOntainer}`} >
         {/* <div className={`${styles.defaultSidebar}`} ></div> */}
         <div>
           {children}
         </div>
         {/* <div className={`${styles.defaultSidebarGroupDoc}`} ></div> */}
-      </main>
+      </Element>
       {!isRoot && <Footer />}
     </>
   )

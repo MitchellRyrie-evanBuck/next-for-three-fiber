@@ -1,0 +1,13 @@
+.main{
+  height: 100%;
+
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--note-padding-top);
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--primary-note-bg-hex);
+}

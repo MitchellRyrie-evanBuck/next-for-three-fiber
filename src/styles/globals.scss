@@ -1,7 +1,7 @@
 
 
 :root {
-  --max-width: 1100px;
+  --max-width: 1200px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
@@ -9,7 +9,8 @@
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 218, 219, 220;
-  --background-end-rgb: 122, 122, 122;
+  --background-end-rgb: 245, 245, 247;
+
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -44,12 +45,14 @@
   --foot-height: 56px;
   --primary: #f7f9fbe6;
   --primary-rbg: 247, 249, 251;
+  --primary-bg-hex: #f5f5f7;
   --font-color: #000;
+  --lighting-size: 300px;
+  --lighting-color: #000;
+  --lighting-highlight-color: #d8b4fe;
+  --primary-note-bg-hex: #FFFFFF;
 
-
-    --lighting-size: 300px;
-    --lighting-color: #000;
-    --lighting-highlight-color: #d8b4fe;
+  --note-padding-top: 36px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,12 +104,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb),.4)
-    )
-    rgb(var(--primary-rbg));
+  background: var(--primary-bg-hex);
   font-family: Helvetica;
 }
 

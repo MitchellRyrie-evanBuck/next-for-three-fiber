@@ -33,7 +33,7 @@ const Header: FC = () => {
   useEffect(() => {
   },[])
   const router = useRouter()
-  return <div className={`${styles.header}  `} >
+  return <div className={`${styles.header}  `} data-aos={`fade-down`} >
     <div className={`${styles.headerLeft} h-full flex items-center `} data-aos="fade-right" >
       <Link href="/" >
         <Image src={userLogo} className='h-9 w-9 rounded-full ' alt="" />

@@ -16,6 +16,7 @@
   --globalnav-background: rgba(251, 251, 253, .8);
   background: var(--globalnav-background);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.01);
+  z-index: 9;
 }
 
 .headerLeft {

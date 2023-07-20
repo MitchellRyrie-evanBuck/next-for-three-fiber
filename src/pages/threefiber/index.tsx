@@ -83,7 +83,7 @@ const FiberComponents = () => {
                       src={`/threefiber/three/${caseItem.id}/${caseItem.imageUrl}`}
                       alt={caseItem.title}
                     />
-                    {loading ? <Skeleton height={50} /> : <h3 className={styles['local-h3']} >{caseItem.title}</h3>}
+                    {loading ? <Skeleton height={50} /> : <h3 className={`${styles['local-h3']} best`} >{caseItem.title}</h3>}
                   </div>
                 }
               </Link>
