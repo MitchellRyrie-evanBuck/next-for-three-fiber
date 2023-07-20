@@ -9,17 +9,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Layout({ children }: { children: React.ReactNode }) {
   const whiteList = ['/note']
   const [showHeader, setShowHeader] = useState(true);
+  const [pathName, setPathName] = useState<string>('');
+
   const [prevScrollY, setPrevScrollY] = useState(0);
-  const [isRoot, setIsRoot] = useState(false)
+  const [isRoot, setIsRoot] = useState(true)
   const router = useRouter()
   const [scrollDirection, setScrollDirection] = useState<number>(0); // 保存滚动方向，0表示初始状态
 
   useEffect(() => {
     setIsRoot(router.pathname === '/' ? true : false)
-
-  }, [])
+    setPathName(router.pathname)
+  }, )
 
   useEffect(() => {
+    console.log('触发--------useEffect')
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
       if (scrollTop < 100 || scrollTop < prevScrollY) {
@@ -32,30 +35,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       setScrollDirection(scrollTop > prevScrollY ? 1 : scrollTop < prevScrollY ? -1 : 0);
       setPrevScrollY(scrollTop);
     };
-    const handleTouchMove = (event: any) => {
-      const touchY = event.touches[0].clientY;
-      if (touchY > prevScrollY) {
-        setShowHeader(true); // 向上滑动时显示头部
-      }
-      console.log('touchY----', touchY)
-      setPrevScrollY(touchY);
-    };
+    // const handleTouchMove = (event: any) => {
+    //   const touchY = event.touches[0].clientY;
+    //   if (touchY > prevScrollY) {
+    //     setShowHeader(true); // 向上滑动时显示头部
+    //   }
+    //   console.log('touchY----', touchY)
+    //   setPrevScrollY(touchY);
+    // };
     if (whiteList.includes(router.pathname)) {
       // 监听滚动事件
       window.addEventListener('scroll', handleScroll);
       // 监听触摸事件
-      window.addEventListener('touchmove', handleTouchMove);
+      // window.addEventListener('touchmove', handleTouchMove);
     }
 
     return () => {
       if (whiteList.includes(router.pathname)) {
+        console.log('触发--------pathname',router.pathname)
         // 移除滚动事件监听
         window.removeEventListener('scroll', handleScroll);
         // 移除触摸事件监听
-        window.removeEventListener('touchmove', handleTouchMove);
+        // window.removeEventListener('touchmove', handleTouchMove);
       }
     };
-  }, [prevScrollY]);
+  }, [prevScrollY, pathName]);
 
   return (
     <>
@@ -65,9 +69,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <motion.header
               key="header"
               initial={{ opacity: 1 }} // 头部可见时的初始状态
-              // animate={{
-              //   opacity: showHeader ? (scrollDirection === -1 ? 1 : 0) : 0,
-              // }} // 头部隐藏时的动画，根据scrollDirection控制透明度
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }} // 动画持续时间
               exit={{ opacity: 0 }}

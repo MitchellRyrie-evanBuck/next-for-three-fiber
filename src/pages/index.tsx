@@ -67,7 +67,7 @@ export default function Home() {
         }, 0.2);
       currentIndex = index;
     }
-    Observer.create({
+    const observer = Observer.create({
       type: "wheel,touch,pointer",
       wheelSpeed: -1,
       onDown: () => !animating && gotoSection(currentIndex - 1, -1),
@@ -76,6 +76,9 @@ export default function Home() {
       preventDefault: true
     });
     gotoSection(0, 1);
+    return () => {
+      observer.kill();
+    };
   },[]);
 
   const Applist = [
