@@ -79,6 +79,8 @@ const FiberComponents = () => {
                       <motion.img
                         initial={{ scale: 1 }} // 初始大小为 1
                         whileHover={{ scale: 1.2 }} // 悬停时放大到 1.2 倍
+                        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                        exit={{ scale: 1 }} // 退出时缩小到 0
                         style={{ width: 'auto', height: 'auto' }}
                         width={300}
                         height={200}
