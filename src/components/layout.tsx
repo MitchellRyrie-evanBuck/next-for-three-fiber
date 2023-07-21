@@ -22,7 +22,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, )
 
   useEffect(() => {
-    console.log('触发--------useEffect')
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
       if (scrollTop < 100 || scrollTop < prevScrollY) {
@@ -30,7 +29,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       } else {
         setShowHeader(false);
       }
-      console.log('scrollTop----', scrollTop)
       // 判断滚动方向
       setScrollDirection(scrollTop > prevScrollY ? 1 : scrollTop < prevScrollY ? -1 : 0);
       setPrevScrollY(scrollTop);
@@ -43,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     //   console.log('touchY----', touchY)
     //   setPrevScrollY(touchY);
     // };
-    if (whiteList.includes(router.pathname)) {
+    if (whiteList.includes(router.pathname) || whiteList.filter(item => router.pathname.startsWith(item) ).length > 0 ) {
       // 监听滚动事件
       window.addEventListener('scroll', handleScroll);
       // 监听触摸事件
@@ -52,7 +50,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return () => {
       if (whiteList.includes(router.pathname)) {
-        console.log('触发--------pathname',router.pathname)
         // 移除滚动事件监听
         window.removeEventListener('scroll', handleScroll);
         // 移除触摸事件监听

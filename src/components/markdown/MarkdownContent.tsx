@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import MarkdownContent from './MarkdownContent';
+import MarkdownContent from './Markdown';
 import TableOfContents from './TableOfContents'; // 自定义的侧边导航组件
 
 interface InProps {

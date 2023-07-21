@@ -11,7 +11,7 @@ interface InProps {
 const TableOfContents: FC<InProps> = ({ content }) => {
   const router = useRouter();
   const [headings, setHeadings] = useState<any[]>([]);
-
+  console.log('router', router)
   // 解析 Markdown 内容，获取标题信息
   useEffect(() => {
     const headingElements = Array.from(document.querySelectorAll('h1, h2')); // 这里假设你的 Markdown 中只包含 h1 和 h2 标题
@@ -46,12 +46,12 @@ const TableOfContents: FC<InProps> = ({ content }) => {
   return (
     <nav className={styles.tableOfContents}>
       <ul>
-        {headings.map((heading) => (
-          <li key={heading.id}>
-            <Link href={`${router.asPath}#${heading.id}`}>
-              <a className={heading.id === activeId ? styles.active : ''} ref={heading.id === activeId ? ref : null}>
+        {headings.map((heading, index) => (
+          <li key={index}>
+            <Link href={`${router.asPath}#${heading.id} `} passHref>
+              <div className={heading.id === activeId ? styles.active : ''} ref={heading.id === activeId ? ref : null}>
                 {heading.text}
-              </a>
+              </div>
             </Link>
           </li>
         ))}

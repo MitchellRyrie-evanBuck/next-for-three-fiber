@@ -33,7 +33,8 @@ const Note: FC = () => {
   
   return (
     <div className={`${styles.main}`} >
-      <div className={`${styles.header} h-60 bg-slate-300`} ></div>
+      <div className="h-6" ></div>
+      <div className={`${styles.header} h-60 bg-slate-300  mb-4`} ></div>
       <div className={`${styles.container}`} >
         {
           noteData.map((item: NoteProps) => {

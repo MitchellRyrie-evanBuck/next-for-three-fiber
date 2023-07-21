@@ -7,3 +7,4 @@ declare module 'split-text' {
   const content: string;
   export default content;
 }
+
