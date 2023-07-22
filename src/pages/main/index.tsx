@@ -1,53 +1,51 @@
-import React, { useEffect } from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
-// import { Inter } from 'next/font/google'
-// import styles from '@/styles/Home.module.css'
-import styles from '@/styles/index.module.scss'
-// const inter = Inter({ subsets: ['latin'] })
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import markdown from '@/docs/构建流程.md'
-import rehypeRaw from 'rehype-raw'
-import Typed from 'typed.js';
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import styles from '@/styles/index.module.scss';
+import { motion, useAnimation } from 'framer-motion';
 
 export default function Home() {
+  const [currentString, setCurrentString] = useState(0);
+  const typedStrings = ['Welcome to My Website', '👋 I am a Web Developer'];
+
   useEffect(() => {
-    // 创建 Typed 实例
-    const options = {
-      strings: ['Welcome to My Website', '👋 I am a Web Developer'],
-      typeSpeed: 50, // 打字速度
-      backSpeed: 30, // 回退速度
-      fadeOut: true,
-      loop: true, // 循环播放
-    };
+    const interval = setInterval(() => {
+      setCurrentString((prev) => (prev + 1) % typedStrings.length);
+    }, 2000);
 
-    const typed = new Typed('.typed-text', options);
-
-    // 组件卸载时销毁 Typed 实例
     return () => {
-      typed.destroy();
+      clearInterval(interval);
     };
   }, []);
+
+  const animationControls = useAnimation();
+
+  useEffect(() => {
+    animationControls.start({ opacity: 0, y: -10 });
+    setTimeout(() => {
+      animationControls.start({ opacity: 1, y: 0 });
+    }, 500);
+    return () => {
+      animationControls.stop();
+    };
+  }, [currentString, animationControls]);
 
   return (
     <>
       <div className={``}>
-        {/* <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          children={markdown}
-          rehypePlugins={[rehypeRaw]}
-        /> */}
-        <h1 className="typed-text text-center font-600 text-3xl pt-40 h-140px"></h1>
-        <div className='text-center font-600 text-2xl best' >
+        <motion.h1
+          className="typed-text text-center font-600 text-3xl pt-40 h-140px"
+          initial={{ opacity: 0, y: -10 }}
+          animate={animationControls}
+        >
+          {typedStrings[currentString]}
+        </motion.h1>
+        <div className='text-center font-600 text-2xl best'>
           My name is Anthony Liu, and I am a web developer who enjoys exploring unknown fields.
         </div>
-        <div className='best text-center font-600 text-2xl' >
+        <div className='best text-center font-600 text-2xl'>
           I am glad you can see my blog and wish you a happy day.
-
         </div>
-
       </div>
     </>
-  )
+  );
 }

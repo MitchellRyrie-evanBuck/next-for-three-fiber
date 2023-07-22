@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState,useRef } from 'react'
 import styles from '../styles/header.module.scss'
 import Image from 'next/image'
 import userLogo from "@/static/images/user-avatar.png"
@@ -6,44 +6,36 @@ import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import '../styles/header.module.scss'
+import Web from './components/web'
+import Server from './components/server';
+import NavItem from './components/navItem'
+import More from './components/more'
 
-interface InNavItem{
-  href: string;
-  children: React.ReactNode
-}
 
-const NavItem: FC<InNavItem> = ({ href, children }) => {
-  const router = useRouter();
-  const isActive = router.pathname === href;
-
-  return (
-    <Link href={href}>
-      <motion.div
-        className={`pr-4 pl-4 cursor-pointer `}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black`} >{children}</span>
-      </motion.div>
-    </Link>
-  );
-};
 
 const Header: FC = () => {
-  const [containerHeight, setContainerHeight] = useState(56);
+  const [containerHeight, setContainerHeight] = useState(60);
   const animationControls = useAnimation();
+  const hoverDivRef = useRef<any>(null);
+  const [currentHover, setCurrentHover] = useState('');
+
   useEffect(() => {
-  },[])
+    let hoverDivHeight = hoverDivRef.current.offsetHeight;
+    console.log('hoverDivHeight------->', hoverDivHeight)
+    const targetHeight = currentHover ? hoverDivHeight + 60 : 60;
+    animationControls.start({ height: targetHeight });
+  }, [currentHover]); // 每次 currentHover 改变时触发 useEffect
+
   const router = useRouter()
 
-  const handleMouseEnter = () => {
-    // 动画：高度从当前值变为 400，持续 1 秒
-    animationControls.start({ height: 400 });
+  const handleMouseEnter = (hover:string) => {
+    setCurrentHover(hover); // 设置当前的 hover
   };
 
   const handleMouseLeave = () => {
+    setCurrentHover(''); // 离开时重置当前 hover
     // 动画：高度从当前值变为 0，持续 1 秒
-    animationControls.start({ height: 56 });
+    animationControls.start({ height: 60 });
   };
 
   return (
@@ -67,23 +59,15 @@ const Header: FC = () => {
           <NavItem href="/threefiber">Three/fiber</NavItem>
           <NavItem href="/note">Doc</NavItem>
           <NavItem href="/github">Github</NavItem>
-          <div className={`${styles.tagger} cursor-pointer`} onMouseEnter={handleMouseEnter} >@@@</div>
+          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
+          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
+          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('more')} >@@@</div>
         </div>
       </div>
-      <motion.div 
-        animate={{
-          // height: ["0%", "100%"]
-        }}
-        // initial={{
-        //   height: "0%"
-        // }}
-        // transition={{
-        //   duration: 1,
-        //   ease: "easeInOut",
-        //   times: [0, 0.2, 0.5, 0.8, 1],
-        //   repeatDelay: 1
-        // }}
-      >
+      <motion.div ref={hoverDivRef} className={`${styles['transition-content']}`} >
+        {currentHover && currentHover === 'Web' && <Web />}
+        {currentHover && currentHover === 'Server' && <Server />}
+        {currentHover && currentHover === 'more' && <More />}
       </motion.div>
     </motion.div>
   )
