@@ -17,7 +17,7 @@ const Web: FC = () =>{
               <motion.div 
                 className={`${styles['web-item-tag']} `} 
                 key={index} 
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={{ scale: 1.1, y: -6 }}
               >{item}</motion.div>
             )
           })
