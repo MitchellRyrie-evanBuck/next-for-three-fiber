@@ -24,8 +24,8 @@ export default function handler(_: NextApiRequest, res: NextApiResponse) {
     const caseDirectory = path.join(casesDirectory, caseId);
     const srcDirectory = path.join(IMGDirectory, caseId );
     const images = fs.readdirSync(srcDirectory);
-
-    const coverImage = images[0];
+    const filteredArray = images.filter(item => !item.startsWith('.') )
+    const coverImage = filteredArray[0];
     return {
       id: caseId,
       // caseDirectory: caseDirectory,
