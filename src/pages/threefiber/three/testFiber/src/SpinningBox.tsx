@@ -4,7 +4,7 @@ import { useCursor } from '@react-three/drei'
 
 export function SpinningBox({ scale, ...props }) {
   // This reference gives us direct access to the THREE.Mesh object
-  const ref = useRef()
+  const ref = useRef(null)
   // Hold state for hovered and clicked events
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)

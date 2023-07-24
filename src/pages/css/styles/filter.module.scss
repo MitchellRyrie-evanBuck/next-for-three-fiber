@@ -1,0 +1,57 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.boxParent {
+  filter: contrast(50);
+  height: 400px;
+  width: 700px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  background-color: #FFF;
+  // border-radius: 50%;
+  animation: r1 .8s ease-in-out infinite alternate;
+  filter: blur(25px);
+}
+
+.box2 {
+  height: 200px;
+  width: 200px;
+  background-color: #FFF;
+  // border-radius: 50%;
+  animation: r2 .8s ease-in-out infinite alternate;
+  filter: blur(25px);
+}
+
+@keyframes r1 {
+  from {
+    transform: rotate(-45deg) translateX(142px);
+        border-radius: 50%;
+  }
+
+  to {
+    transform: rotate(45deg) translateX(-80px);
+
+  }
+}
+
+@keyframes r2 {
+  from {
+    transform: rotate(45deg) translateX(-142px);
+    border-radius: 50%;
+
+  }
+
+  to {
+    transform: rotate(-45deg) translateX(80px);
+
+  }
+}

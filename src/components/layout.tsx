@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const whiteList = ['/note']
+  const whiteList = ['/note','/three']
+  const displayList = []
   const [showHeader, setShowHeader] = useState(true);
   const [pathName, setPathName] = useState<string>('');
 
