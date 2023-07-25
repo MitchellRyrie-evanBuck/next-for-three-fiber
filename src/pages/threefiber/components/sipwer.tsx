@@ -37,7 +37,7 @@ const Sipwer: FC<InProps> = (props) => {
         navigation={false}
       >
         {
-          props.data.map((item, index) => {
+          props.data && props.data.length ?  props.data.map((item, index) => {
             return (
               <SwiperSlide key={index} >
                 <Link href={`/threefiber/three/${item.id}`} >
@@ -52,7 +52,7 @@ const Sipwer: FC<InProps> = (props) => {
                 </Link>
               </SwiperSlide>
             )
-          })
+          }) : <SwiperSlide> 暂无数据 </SwiperSlide>
         }
       </Swiper>
     </div>

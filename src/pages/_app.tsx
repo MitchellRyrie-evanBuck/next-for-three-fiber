@@ -1,6 +1,7 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import '@/styles/globals.scss'
 import '@/styles/index.css'
+import '@/styles/main.scss'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
 import Header from '@/components/layout/header/header'

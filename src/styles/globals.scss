@@ -108,6 +108,25 @@ body {
   font-family: Helvetica;
 }
 
+h2 * {
+  will-change: transform;
+}
+
+section .bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+section .bg .clip-text {
+  overflow: hidden;
+}
 a, .best {
   text-decoration: none;
   background-image: radial-gradient(var(--lighting-highlight-color), var(--lighting-color), var(--lighting-color));

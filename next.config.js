@@ -17,7 +17,7 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   experimental:{
-    appDir: true,
+    appDir: false,
     // fastRefresh: false,
   },
   swcMinify: true,

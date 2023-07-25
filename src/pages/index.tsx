@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-// import {gsap} from "gsap"
-import '@/styles/main.scss'
+import {gsap} from "gsap"
+
 import Image from 'next/image';
 import first from "@/static/images/first.png"
 import second from "@/static/images/second.png"
