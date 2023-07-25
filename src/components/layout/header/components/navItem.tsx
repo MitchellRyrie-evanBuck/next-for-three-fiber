@@ -19,6 +19,7 @@ const NavItem: FC<InNavItem> = ({ href, children }) => {
         className={`pr-4 pl-4 cursor-pointer `}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        layout
       >
         <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black`} >{children}</span>
       </motion.div>

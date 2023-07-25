@@ -42,6 +42,7 @@ const Header: FC = () => {
     <motion.div 
       className={`${styles.header}`} 
       data-aos={`fade-down`} 
+      layout
       animate={animationControls}
       style={{ height: containerHeight }}
       onMouseLeave={handleMouseLeave}
