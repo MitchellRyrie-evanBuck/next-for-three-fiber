@@ -6,6 +6,7 @@ const nextConfig = {
   //   javascriptEnabled: true,
   //   includePaths: [path.join(__dirname, 'styles')],
   // },
+  // transpilePackages: ['three'],
   distDir: 'build',
   publicRuntimeConfig: {
     staticFolder: '/static',
@@ -20,10 +21,15 @@ const nextConfig = {
     appDir: false,
     // fastRefresh: false,
   },
-  swcMinify: true,
+  swcMinify: false,
   webpack: (config, options) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
-
+    // if (!options.isServer) {
+    //   config.module.rules.push({
+    //     test: /three\.module\.js$/,
+    //     loader: 'babel-loader', // 使用默认的 Babel 转译器
+    //   });
+    // }
     // config.module.rules.push({
     //   test: /\.css$/,
     //   use: ['style-loader', 'css-loader'],

@@ -14,7 +14,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        {/* <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js' ></script> */}
+        <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js' ></script>
         <script src='https://assets.codepen.io/16327/Observer.min.js' ></script>
         <script src='https://assets.codepen.io/16327/gsap-latest-beta.min.js' ></script>
         <link

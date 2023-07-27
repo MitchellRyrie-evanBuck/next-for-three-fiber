@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import {gsap} from "gsap"
-
+import React, { useEffect, useState } from 'react';
+import { gsap } from "gsap"
 import Image from 'next/image';
 import first from "@/static/images/first.png"
 import second from "@/static/images/second.png"
@@ -11,11 +10,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ArrowIcon from '@/static/svg/arrow-down-bold';
 
-
-
 export default function Home() {
+  const [animation, setAnimation] = useState('down');
+  const animationOptions = ['down', 'up', 'show'];
+
   useEffect(() => {
-    console.log('useEffect')
     gsap.registerPlugin(Observer);
     // 这里放置其他与 Observer 相关的初始化代码
     let sections = document.querySelectorAll("section"),
@@ -40,7 +39,6 @@ export default function Home() {
           onComplete: () => { animating = false }
         });
       if (currentIndex >= 0) {
-        // The first time this function runs, current is -1
         gsap.set(sections[currentIndex], { zIndex: 0 });
         tl.to(images[currentIndex], { yPercent: -15 * dFactor })
           .set(sections[currentIndex], { autoAlpha: 0 });
@@ -52,19 +50,19 @@ export default function Home() {
         yPercent: 0
       }, 0)
         .fromTo(images[index], { yPercent: 15 * dFactor }, { yPercent: 0 }, 0)
-        // .fromTo(splitHeadings[index].chars, {
-        //   autoAlpha: 0,
-        //   yPercent: 150 * dFactor
-        // }, {
-        //   autoAlpha: 1,
-        //   yPercent: 0,
-        //   duration: 1,
-        //   ease: "power2",
-        //   stagger: {
-        //     each: 0.02,
-        //     from: "random"
-        //   }
-        // }, 0.2);
+      //   .fromTo(splitHeadings[index].chars, {
+      //   autoAlpha: 0,
+      //   yPercent: 150 * dFactor
+      // }, {
+      //   autoAlpha: 1,
+      //   yPercent: 0,
+      //   duration: 1,
+      //   ease: "power2",
+      //   stagger: {
+      //     each: 0.02,
+      //     from: "random"
+      //   }
+      // }, 0.2);
       currentIndex = index;
     }
     const observer = Observer.create({
@@ -79,7 +77,7 @@ export default function Home() {
     return () => {
       observer.kill();
     };
-  },[]);
+  }, []);
 
   const Applist = [
     {
@@ -126,12 +124,14 @@ export default function Home() {
                     <div className="overflow"></div>
                     <Image src={item.url} priority={true} className='imgs h-full w-full  inset-0' alt='' ></Image>
                     <div className="section-heading">
-                      <h2 className='text-white best' >{item.title}</h2>
+                      <h2 
+                        className='text-white best' 
+                        >{item.title}</h2>
                       <Link href="/main" className="open">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                          className='box '
+                          className='box'
                         >
                           <span className='mr-1.5'>OPEN</span><span className='ml-1.5'>BLOG</span>
                         </motion.div>

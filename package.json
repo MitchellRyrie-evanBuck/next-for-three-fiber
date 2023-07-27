@@ -73,6 +73,7 @@
     "@next/bundle-analyzer": "^13.4.10",
     "@next/react-refresh-utils": "^13.4.10",
     "antd": "^5.3.2",
-    "babel-plugin-module-resolver": "^5.0.0"
+    "babel-plugin-module-resolver": "^5.0.0",
+    "next-transpile-modules": "^10.0.1"
   }
 }
