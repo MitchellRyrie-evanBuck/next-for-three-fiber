@@ -1,11 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
 import axios from 'axios';
-import WaterfallItem from './components/WaterfallItem'
 import styles from './styles/threefiber.module.scss'
 import Masonry from 'react-masonry-css';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Skeleton from 'react-loading-skeleton';
-import Image from 'next/image';
 import Link from 'next/link';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Sipwer from './components/sipwer';
