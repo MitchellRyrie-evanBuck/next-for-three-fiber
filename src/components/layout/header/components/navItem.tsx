@@ -6,10 +6,11 @@ import styles from '../../styles/header.module.scss'
 
 interface InNavItem {
   href: string;
-  children: React.ReactNode
+  children: React.ReactNode,
+  onMouseEnter: (ev: MouseEvent) => void;
 }
 
-const NavItem: FC<InNavItem> = ({ href, children }) => {
+const NavItem: FC<InNavItem> = ({ href, children, onMouseEnter }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
 
@@ -20,6 +21,7 @@ const NavItem: FC<InNavItem> = ({ href, children }) => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         layout
+        onHoverStart={onMouseEnter}
       >
         <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black`} >{children}</span>
       </motion.div>

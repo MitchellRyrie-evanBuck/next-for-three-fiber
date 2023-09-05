@@ -56,10 +56,10 @@ const Header: FC = () => {
         </div>
 
         <div className="flex items-center justify-between p-4 ">
-          <NavItem href="/main">Home</NavItem>
-          <NavItem href="/threefiber">Three/fiber</NavItem>
-          <NavItem href="/note">Doc</NavItem>
-          <NavItem href="/github">Github</NavItem>
+          <NavItem href="/main" onMouseEnter={() => handleMouseEnter('')} >Home</NavItem>
+          <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >Three/fiber</NavItem>
+          <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>Doc</NavItem>
+          <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >Github</NavItem>
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('more')} >@@@</div>
