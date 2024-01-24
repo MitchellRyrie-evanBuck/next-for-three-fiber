@@ -1,3 +1,5 @@
+const withLess = require('next-with-less');
+
 const path = require('path');
 
 const nextConfig = {
@@ -74,4 +76,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withBundleAnalyzer( nextConfig)
+module.exports = withBundleAnalyzer(withLess({
+  lessLoaderOptions: {
+    lessOptions: {
+      javascriptEnabled: true
+    }
+  },
+  ...nextConfig
+}))
