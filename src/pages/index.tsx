@@ -16,7 +16,6 @@ export default function Home() {
 
   useEffect(() => {
     gsap.registerPlugin(Observer);
-    // 这里放置其他与 Observer 相关的初始化代码
     let sections = document.querySelectorAll("section"),
       images = document.querySelectorAll(".bg"),
       headings = gsap.utils.toArray(".section-heading"),
