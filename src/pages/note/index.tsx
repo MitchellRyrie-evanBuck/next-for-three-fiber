@@ -14,7 +14,6 @@ interface NoteProps {
 const Note: FC = () => {
   const [noteData, setNoteData] = useState<NoteProps[]>([])
   useEffect(() => {
-    // 随机生成笔记
     const noteDataList: NoteProps[] = []
     for (let i = 0; i < 30; i++) {
       const note: NoteProps = {
