@@ -29,7 +29,6 @@ const FiberComponents = () => {
         },
       });
       const newCases = response.data;
-      console.log('请求数据---->')
       setCases((prevCases) => [...prevCases, ...newCases]);
       setLoading(false);
       setHasMore(newCases.length === itemsPerLoad);
