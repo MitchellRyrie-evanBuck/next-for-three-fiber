@@ -6,7 +6,6 @@ interface NoteProps {
   id: number
   title: string
   content?: string
-  createTime:  string
   updateTime:  string
   isDelete: boolean
 }
@@ -20,7 +19,6 @@ const Note: FC = () => {
         id: i,
         title: `笔记${i}`,
         content: `笔记${i}的内容`,
-        createTime: dayjs().format('YYYY-MM-MM HH:mm'),
         updateTime: dayjs().format('YYYY-MM-MM HH:mm'),
         isDelete: false
       }
