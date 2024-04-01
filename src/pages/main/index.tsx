@@ -19,16 +19,6 @@ export default function Home() {
 
   const animationControls = useAnimation();
 
-  // useEffect(() => {
-  //   animationControls.start({ opacity: 0, y: -10 });
-  //   setTimeout(() => {
-  //     animationControls.start({ opacity: 1, y: 0 });
-  //   }, 500);
-  //   return () => {
-  //     animationControls.stop();
-  //   };
-  // }, [currentString, animationControls]);
-
   return (
     <>
       <div className={``}>
