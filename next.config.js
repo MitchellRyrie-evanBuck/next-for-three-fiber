@@ -10,6 +10,7 @@ const nextConfig = {
   publicRuntimeConfig: {
     staticFolder: '/static',
   },
+  
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -27,8 +28,8 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-   images: {
-     domains: ['images.unsplash.com', 'static/images', 'source.unsplash.com'], // Add the hostname of the external domain here
+  images: {
+    domains: ['images.unsplash.com', 'source.unsplash.com'], // Only include hostnames of external sources
   },
 }
 
