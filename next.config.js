@@ -29,7 +29,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['images.unsplash.com', 'source.unsplash.com'], // Only include hostnames of external sources
+    domains: ['images.unsplash.com', 'source.unsplash.com'], 
   },
 }
 
