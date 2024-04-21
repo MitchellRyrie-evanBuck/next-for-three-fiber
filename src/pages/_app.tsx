@@ -11,6 +11,13 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { Inter as FontSans } from "next/font/google"
+import { cn } from "@/lib/utils"
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 
 export default function App( { Component, pageProps, ...result  }: AppProps) {
@@ -45,10 +52,16 @@ export default function App( { Component, pageProps, ...result  }: AppProps) {
   })
 
   return (
-    <>
-      <Layout>
+    <div
+      className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        fontSans.variable
+      )}
+    >
+      <Layout
+      >
         <Component {...pageProps} />
       </Layout>
-    </>
+    </div>
   )
 }

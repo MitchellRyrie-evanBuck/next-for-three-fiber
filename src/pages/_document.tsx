@@ -2,6 +2,7 @@ import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/do
 import Header from '@/components/layout/header/header'
 import Footer from '@/components/layout/footer/footer'
 
+
 class MyDocument extends Document {
   // static async getInitialProps(ctx: DocumentContext) {
   //   const { pathname } = ctx;
@@ -24,7 +25,9 @@ class MyDocument extends Document {
         <Head>
            {/* <Header /> */}
         </Head>
-        <body>
+        <body
+      
+        >
           <Main  ></Main>
           {/* <Footer /> */}
           <NextScript />
