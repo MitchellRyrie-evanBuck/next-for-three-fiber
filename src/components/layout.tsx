@@ -77,14 +77,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </AnimatePresence >
       }
 
-      <Element name="app" className={`${!isRoot ? styles.container : styles.rootCOntainer}`} >
-        {/* <div className={`${styles.defaultSidebar}`} ></div> */}
+      <Element name="app" className={`${ styles.rootCOntainer}`} >
         <div>
           {children}
         </div>
-        {/* <div className={`${styles.defaultSidebarGroupDoc}`} ></div> */}
       </Element>
-      {!isRoot && <Footer />}
+      {!isRoot && false &&  <Footer />}
     </>
   )
 }

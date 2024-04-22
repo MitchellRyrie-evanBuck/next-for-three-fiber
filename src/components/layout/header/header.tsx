@@ -10,7 +10,16 @@ import Web from './components/web'
 import Server from './components/server';
 import NavItem from './components/navItem'
 import More from './components/more'
-
+import { Switch } from "@/components/ui/switch"
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { useTheme } from "next-themes"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 
 const Header: FC = () => {
@@ -18,6 +27,7 @@ const Header: FC = () => {
   const animationControls = useAnimation();
   const hoverDivRef = useRef<any>(null);
   const [currentHover, setCurrentHover] = useState('');
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     let hoverDivHeight = hoverDivRef.current.offsetHeight;
@@ -27,6 +37,12 @@ const Header: FC = () => {
   }, [currentHover]); // 每次 currentHover 改变时触发 useEffect
 
   const router = useRouter()
+  const { setTheme } = useTheme()
+  
+  const handleThmetChange = (val:boolean) =>{
+    console.log('handleThmetChange------->', val)
+    setIsDark(val)
+  }
 
   const handleMouseEnter = (hover:string) => {
     setCurrentHover(hover); // 设置当前的 hover
@@ -63,6 +79,30 @@ const Header: FC = () => {
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
           <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('more')} >@@@</div>
+          <Switch className={`${styles.tagger} cursor-pointer ml-4`}
+            checked={isDark}
+            onCheckedChange={handleThmetChange}
+          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => setTheme("light")}>
+                Light
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>
+                Dark
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>
+                System
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       <motion.div ref={hoverDivRef} className={`${styles['transition-content']}`} >
@@ -70,6 +110,7 @@ const Header: FC = () => {
         {currentHover && currentHover === 'Server' && <Server />}
         {currentHover && currentHover === 'more' && <More />}
       </motion.div>
+      
     </motion.div>
   )
 }

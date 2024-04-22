@@ -106,7 +106,24 @@ body {
   color: rgb(var(--foreground-rgb));
   background: var(--primary-bg-hex);
   font-family: Helvetica;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #e6e6e6;
+  }
 }
+
 
 h2 * {
   will-change: transform;

@@ -10,9 +10,11 @@ import Layout from '@/components/layout'
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/themeProvider"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,7 +22,7 @@ const fontSans = FontSans({
 })
 
 
-export default function App( { Component, pageProps, ...result  }: AppProps) {
+export default function App({ Component, pageProps, ...result }: AppProps) {
   const router = useRouter();
   useEffect(() => {
     console.log(' AOS.init();')
@@ -45,23 +47,32 @@ export default function App( { Component, pageProps, ...result  }: AppProps) {
 
     window.addEventListener('load', setLinksPositions);
     window.addEventListener('resize', setLinksPositions);
-    return ()=>{
+    return () => {
       window.removeEventListener('load', setLinksPositions);
       window.removeEventListener('resize', setLinksPositions);
     }
   })
 
   return (
-    <div
-      className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
-      )}
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
     >
-      <Layout
-      >
-        <Component {...pageProps} />
-      </Layout>
-    </div>
+      <Theme>
+        <div
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
+        >
+          <Layout
+          >
+            <Component {...pageProps} />
+          </Layout>
+        </div>
+      </Theme>
+    </ThemeProvider>
   )
 }
