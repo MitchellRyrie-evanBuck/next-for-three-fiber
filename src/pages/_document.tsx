@@ -4,14 +4,6 @@ import Footer from '@/components/layout/footer/footer'
 
 
 class MyDocument extends Document {
-  // static async getInitialProps(ctx: DocumentContext) {
-  //   const { pathname } = ctx;
-  //   const isRoot = pathname === '/';
-  //   const showHeaderFooter = !isRoot;
-  //   const initialProps = await Document.getInitialProps(ctx)
-  //   return { ...initialProps, showHeaderFooter }
-  // }
-
   render() {
     return (
       <Html lang="en" suppressHydrationWarning>
