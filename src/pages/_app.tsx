@@ -25,7 +25,6 @@ const fontSans = FontSans({
 export default function App({ Component, pageProps, ...result }: AppProps) {
   const router = useRouter();
   useEffect(() => {
-    console.log(' AOS.init();')
     AOS.init();
   }, []);
 
