@@ -138,7 +138,7 @@ export default function Home() {
                       <div className="arrow-container">
                         <motion.div
                           animate={{ y: [0, -20, 0] }} // 在 y 轴上进行跳动动画
-                          transition={{ duration: 1, repeat: Infinity }} // 持续时间为 1 秒，无限重复
+                          transition={{ duration: 1, repeat: Infinity }} 
                         >
                           <ArrowIcon />
                         </motion.div>
