@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     //   if (touchY > prevScrollY) {
     //     setShowHeader(true); // 向上滑动时显示头部
     //   }
-    //   console.log('touchY----', touchY)
+    //   console.log('touchY---', touchY)
     //   setPrevScrollY(touchY);
     // };
     if (whiteList.includes(router.pathname) || whiteList.filter(item => router.pathname.startsWith(item) ).length > 0 ) {
