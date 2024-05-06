@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isRoot, setIsRoot] = useState(true)
   const router = useRouter()
-  const [scrollDirection, setScrollDirection] = useState<number>(0); // 保存滚动方向，0表示初始状态
+  const [scrollDirection, setScrollDirection] = useState<number>(0); 
 
   useEffect(() => {
     setIsRoot(router.pathname === '/' ? true : false)
