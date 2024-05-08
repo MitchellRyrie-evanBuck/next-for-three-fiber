@@ -66,7 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {showHeader &&
             <motion.header
               key="header"
-              initial={{ opacity: 1 }} // 头部可见时的初始状态
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               exit={{ opacity: 0 }}
