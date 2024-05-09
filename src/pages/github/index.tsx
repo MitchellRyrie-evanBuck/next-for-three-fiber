@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react"
 export default function GithubComponents() {
   return <div className="github">
     <Button variant="outline">Button</Button>
-    <Link href={''} className={buttonVariants({ variant: "outline" })}>Click here</Link>
+    <Link href={''} className={buttonVariants({ variant: "outline" })}>Click </Link>
     <Button asChild>
       <Link href="/login">Login</Link>
     </Button>
