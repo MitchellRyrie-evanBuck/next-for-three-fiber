@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isRoot, setIsRoot] = useState(true)
   const router = useRouter()
-  const [scrollDirection, setScrollDirection] = useState<number>(0); // 保存滚动方向，0表示初始状态
+  const [scrollDirection, setScrollDirection] = useState<number>(0); 
 
   useEffect(() => {
     setIsRoot(router.pathname === '/' ? true : false)
@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     //   if (touchY > prevScrollY) {
     //     setShowHeader(true); // 向上滑动时显示头部
     //   }
-    //   console.log('touchY----', touchY)
+    //   console.log('touchY---', touchY)
     //   setPrevScrollY(touchY);
     // };
     if (whiteList.includes(router.pathname) || whiteList.filter(item => router.pathname.startsWith(item) ).length > 0 ) {
@@ -66,9 +66,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {showHeader &&
             <motion.header
               key="header"
-              initial={{ opacity: 1 }} // 头部可见时的初始状态
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }} // 动画持续时间
+              transition={{ duration: 0.5 }}
               exit={{ opacity: 0 }}
             >
               <Navbar />
