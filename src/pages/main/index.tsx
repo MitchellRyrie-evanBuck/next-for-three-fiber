@@ -36,10 +36,6 @@ export default function Home() {
         <div className='best text-center font-600 text-2xl'>
           I am glad you can see my blog and wish you a happy day.
         </div>
-        {/* <div className='w-1/2 h-1/2 mx-auto mt-20'> */}
-          {/* <Spline scene="https://prod.spline.design/zQBhbbwDW5Mn8L1T/scene.splinecode" /> */}
-          {/* <Spline scene="https://prod.spline.design/2V3oJsyoivobyNme/scene.splinecode" /> */}
-        {/* </div> */}
       </div>
     </>
   );
