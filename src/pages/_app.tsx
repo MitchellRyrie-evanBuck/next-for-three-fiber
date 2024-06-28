@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '@radix-ui/themes/styles.css';
+import 'highlight.js/styles/atom-one-dark.css';
 import { Theme } from '@radix-ui/themes';
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"

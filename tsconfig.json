@@ -28,9 +28,12 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "build/types/**/*.ts"
-, "src/hooks/useGtoSection.js", "src/pages/threefiber/three/testFiber/src/SpinningBox.jsx", "src/pages/threefiber/three/testFiber/src/Computers.jsx", "src/pages/threefiber/three/testFiber/index.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "build/types/**/*.ts",
+    "src/hooks/useGtoSection.js",
+    "./types/*",
+    "src/pages/threefiber/three/testFiber/src/SpinningBox.jsx",
+    "src/pages/threefiber/three/testFiber/src/Computers.jsx",
+    "src/pages/threefiber/three/testFiber/index.jsx"
+  ],
+  "exclude": ["node_modules"]
 }
