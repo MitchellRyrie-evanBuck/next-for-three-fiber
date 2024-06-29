@@ -1,4 +1,4 @@
-import { FC, useEffect, useState,useRef } from 'react'
+import { FC, useEffect, useState, useRef } from 'react'
 import styles from '../styles/header.module.scss'
 import Image from 'next/image'
 import userLogo from "@/static/images/user-avatar.png"
@@ -11,7 +11,7 @@ import Server from './components/server';
 import NavItem from './components/navItem'
 import More from './components/more'
 import { Switch } from "@/components/ui/switch"
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { MoonIcon, SunIcon, GitHubLogoIcon, AvatarIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
 import {
@@ -38,13 +38,13 @@ const Header: FC = () => {
 
   const router = useRouter()
   const { setTheme } = useTheme()
-  
-  const handleThmetChange = (val:boolean) =>{
+
+  const handleThmetChange = (val: boolean) => {
     console.log('handleThmetChange------->', val)
     setIsDark(val)
   }
 
-  const handleMouseEnter = (hover:string) => {
+  const handleMouseEnter = (hover: string) => {
     setCurrentHover(hover); // 设置当前的 hover
   };
 
@@ -55,9 +55,9 @@ const Header: FC = () => {
   };
 
   return (
-    <motion.div 
-      className={`${styles.header}`} 
-      data-aos={`fade-down`} 
+    <motion.div
+      className={`${styles.header}`}
+      data-aos={`fade-down`}
       layout
       animate={animationControls}
       style={{ height: containerHeight }}
@@ -72,18 +72,23 @@ const Header: FC = () => {
           <div className='pl-6 font-600 text-xl ' >  </div>
         </div>
 
-        <div className="flex items-center justify-between p-4 ">
+        <div className="flex items-center justify-between  box-border  h-full">
           <NavItem href="/main" onMouseEnter={() => handleMouseEnter('')} >Home</NavItem>
-          <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >Three/fiber</NavItem>
+          <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >3D</NavItem>
           <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>文档</NavItem>
-          <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >Github</NavItem>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >Discover</div>
-          <Switch className={`${styles.tagger} cursor-pointer ml-4`}
-            checked={isDark}
-            onCheckedChange={handleThmetChange}
-          />
+
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web3</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >服务</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >发现</div>
+          <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >
+              <GitHubLogoIcon className='block' width={20} height={20} />
+          </NavItem>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`}>
+            <SunIcon color='#000' width={20} height={20} />
+          </div>
+          <div className={`${styles.tagger} cursor-pointer  pl-4`}>
+          <AvatarIcon  color='#000' width={20} height={20} />
+          </div>
         </div>
       </div>
       <motion.div ref={hoverDivRef} className={`${styles['transition-content']}`} >
@@ -91,7 +96,7 @@ const Header: FC = () => {
         {currentHover && currentHover === 'Server' && <Server />}
         {currentHover && currentHover === 'more' && <More />}
       </motion.div>
-      
+
     </motion.div>
   )
 }

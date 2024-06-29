@@ -15,15 +15,15 @@ const NavItem: FC<InNavItem> = ({ href, children, onMouseEnter }) => {
   const isActive = router.pathname === href;
 
   return (
-    <Link href={href}>
+    <Link href={href} className="h-full pr-4 pl-4 cursor-pointer flex items-center justify-center">
       <motion.div
-        className={`pr-4 pl-4 cursor-pointer `}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        className={`h-full `}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.8 }}
         layout
         onHoverStart={onMouseEnter}
       >
-        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black`} >{children}</span>
+        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black h-full flex items-center justify-center`} >{children}</span>
       </motion.div>
     </Link>
   );
