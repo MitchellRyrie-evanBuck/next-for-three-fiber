@@ -64,9 +64,10 @@ const Header: FC = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className={`${styles['transition-header']}`} >
-        <div className={`${styles.headerLeft} h-full flex items-center `} data-aos="fade-right" >
+        <div className={`${styles.headerLeft} h-full flex items-center `}  >
           <Link href="/" >
             {/* <Image src={userLogo} className='h-9 w-9 rounded-full ' alt="" /> */}
+            <div data-aos="fade-right" className='text-black'>Mitchell Ryrie</div>
           </Link>
           <div className='pl-6 font-600 text-xl ' >  </div>
         </div>
@@ -74,35 +75,15 @@ const Header: FC = () => {
         <div className="flex items-center justify-between p-4 ">
           <NavItem href="/main" onMouseEnter={() => handleMouseEnter('')} >Home</NavItem>
           <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >Three/fiber</NavItem>
-          <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>Doc</NavItem>
+          <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>文档</NavItem>
           <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >Github</NavItem>
-          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
-          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
-          <div className={`${styles.tagger} cursor-pointer pl-4`} onMouseEnter={() => handleMouseEnter('more')} >@@@</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Server</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >Discover</div>
           <Switch className={`${styles.tagger} cursor-pointer ml-4`}
             checked={isDark}
             onCheckedChange={handleThmetChange}
           />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon">
-                <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span className="sr-only">Toggle theme</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                Light
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                Dark
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("system")}>
-                System
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
       <motion.div ref={hoverDivRef} className={`${styles['transition-content']}`} >

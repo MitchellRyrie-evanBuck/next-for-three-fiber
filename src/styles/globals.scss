@@ -1,7 +1,7 @@
 
 
 :root {
-  --max-width: 1200px;
+  --max-width: 1024px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
@@ -92,7 +92,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  user-select: none;
+  // user-select: none;
 }
 
 html,
@@ -161,4 +161,16 @@ a, .best {
   html {
     color-scheme: dark;
   }
+}
+
+@font-face {
+  font-family: 'AlexBrush';
+  src: url('/fonts/PlaywriteUSTrad-VariableFont_wght.ttf') format('truetype');
+  /* 添加其他样式属性，例如 font-weight, font-style 等 */
+}
+
+@font-face {
+  font-family: 'logoBrush';
+  src: url('/fonts/Reey-Regular.otf') format('truetype');
+  /* 添加其他样式属性，例如 font-weight, font-style 等 */
 }
