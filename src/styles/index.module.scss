@@ -6,11 +6,11 @@
 }
 
 .rootCOntainer {
-  min-height: 100vh;
+  // min-height: calc(100vh - var(--foot-height));
   width: 100vw;
   box-sizing: border-box;
-  padding-top: var(--head-height);
-
+  // padding-top: var(--head-height);
+  overflow-y: auto;
 }
 
 .introduce{

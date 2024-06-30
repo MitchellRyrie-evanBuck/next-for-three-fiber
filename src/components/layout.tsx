@@ -42,20 +42,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     //   console.log('touchY---', touchY)
     //   setPrevScrollY(touchY);
     // };
-    if (whiteList.includes(router.pathname) || whiteList.filter(item => router.pathname.startsWith(item) ).length > 0 ) {
-      // 监听滚动事件
-      window.addEventListener('scroll', handleScroll);
-      // 监听触摸事件
-      // window.addEventListener('touchmove', handleTouchMove);
-    }
+    // if (whiteList.includes(router.pathname) || whiteList.filter(item => router.pathname.startsWith(item) ).length > 0 ) {
+    //   // 监听滚动事件
+    //   window.addEventListener('scroll', handleScroll);
+    //   // 监听触摸事件
+    //   // window.addEventListener('touchmove', handleTouchMove);
+    // }
 
     return () => {
-      if (whiteList.includes(router.pathname)) {
-        // 移除滚动事件监听
-        window.removeEventListener('scroll', handleScroll);
-        // 移除触摸事件监听
-        // window.removeEventListener('touchmove', handleTouchMove);
-      }
+      // if (whiteList.includes(router.pathname)) {
+      //   window.removeEventListener('scroll', handleScroll);
+      //   // window.removeEventListener('touchmove', handleTouchMove);
+      // }
     };
   }, [prevScrollY, pathName]);
 
@@ -78,11 +76,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       }
 
       <Element name="app" className={`${ styles.rootCOntainer}`} >
-        <div>
+        <div >
           {children}
         </div>
       </Element>
-      {!isRoot && false &&  <Footer />}
+      {!isRoot  &&  <Footer />}
     </>
   )
 }

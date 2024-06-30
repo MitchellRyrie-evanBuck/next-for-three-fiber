@@ -31,7 +31,6 @@ const Header: FC = () => {
 
   useEffect(() => {
     let hoverDivHeight = hoverDivRef.current.offsetHeight;
-    console.log('hoverDivHeight------->', hoverDivHeight)
     const targetHeight = currentHover ? hoverDivHeight + 60 : 60;
     animationControls.start({ height: targetHeight });
   }, [currentHover]); // 每次 currentHover 改变时触发 useEffect
@@ -40,7 +39,6 @@ const Header: FC = () => {
   const { setTheme } = useTheme()
 
   const handleThmetChange = (val: boolean) => {
-    console.log('handleThmetChange------->', val)
     setIsDark(val)
   }
 

@@ -55,7 +55,7 @@ export default function CodeBlock({ language, code }: codeBlockPropsTypes) {
         style={{ position: 'absolute', top: 4, right: 4, lineHeight: '14px' }}
         className="code-block__button"
         data-clipboard-target={`#${language}`} disabled={!preRef.current}>
-        {copied ?  "copyed!" : "copy" }
+        {copied ?  "copied!" : "copy" }
       </Button>
     </div>
   );
