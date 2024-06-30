@@ -6,11 +6,12 @@
 }
 
 .rootCOntainer {
-  // min-height: calc(100vh - var(--foot-height));
+  min-height: calc(100vh );
   width: 100vw;
   box-sizing: border-box;
   // padding-top: var(--head-height);
   overflow-y: auto;
+  background: var(--background-trend);
 }
 
 .introduce{
