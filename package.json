@@ -45,6 +45,7 @@
     "react": "18.3.1",
     "react-activity-calendar": "^2.2.11",
     "react-dom": "18.3.1",
+    "react-google-login": "^5.2.2",
     "rehype-katex": "^7.0.0",
     "rehype-raw": "^7.0.0",
     "remark": "^15.0.1",
