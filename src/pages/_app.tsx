@@ -1,56 +1,65 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document'
 import '@/styles/globals.scss'
 import '@/styles/index.css'
 import '@/styles/main.scss'
 import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'
 import Header from '@/components/layout/header/header'
 import Footer from '@/components/layout/footer/footer'
 import Layout from '@/components/layout'
-import { useEffect } from 'react';
-import AOS from 'aos';
+import { useEffect } from 'react'
+import AOS from 'aos'
 
-import 'aos/dist/aos.css';
-import '@radix-ui/themes/styles.css';
+import 'aos/dist/aos.css'
+import '@radix-ui/themes/styles.css'
 
-import { Theme } from '@radix-ui/themes';
-import { Inter as FontSans } from "next/font/google"
-import { cn } from "@/lib/utils"
-import { ThemeProvider } from "@/components/themeProvider"
+import { Theme } from '@radix-ui/themes'
+import { Inter as FontSans } from 'next/font/google'
+import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/components/themeProvider'
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 })
 
-
 export default function App({ Component, pageProps, ...result }: AppProps) {
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
-    AOS.init();
-  }, []);
+    AOS.init()
+  }, [])
 
   function setLinksPositions() {
+    // biome-ignore lint/complexity/noForEach: <explanation>
     document.querySelectorAll('div').forEach((a) => {
-      const bounding = a.getBoundingClientRect();
+      const bounding = a.getBoundingClientRect()
 
-      a.style.setProperty('--positionX', `${bounding.x}px`);
-      a.style.setProperty('--positionY', `${bounding.y}px`);
-    });
+      a.style.setProperty('--positionX', `${bounding.x}px`)
+      a.style.setProperty('--positionY', `${bounding.y}px`)
+    })
   }
 
-
   useEffect(() => {
-    (document as any).querySelector('body').addEventListener('mousemove', (e: any) => {
-      e.currentTarget.style.setProperty('--x', `${e.clientX}px`);
-      e.currentTarget.style.setProperty('--y', `${e.clientY}px`);
-    });
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    ;(document as any)
+      .querySelector('body')
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      .addEventListener('mousemove', (e: any) => {
+        e.currentTarget.style.setProperty('--x', `${e.clientX}px`)
+        e.currentTarget.style.setProperty('--y', `${e.clientY}px`)
+      })
 
-    window.addEventListener('load', setLinksPositions);
-    window.addEventListener('resize', setLinksPositions);
+    window.addEventListener('load', setLinksPositions)
+    window.addEventListener('resize', setLinksPositions)
     return () => {
-      window.removeEventListener('load', setLinksPositions);
-      window.removeEventListener('resize', setLinksPositions);
+      window.removeEventListener('load', setLinksPositions)
+      window.removeEventListener('resize', setLinksPositions)
     }
   })
 
@@ -64,12 +73,11 @@ export default function App({ Component, pageProps, ...result }: AppProps) {
       <Theme>
         <div
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            'min-h-screen bg-background font-sans antialiased',
             fontSans.variable
           )}
         >
-          <Layout
-          >
+          <Layout>
             <Component {...pageProps} />
           </Layout>
         </div>
