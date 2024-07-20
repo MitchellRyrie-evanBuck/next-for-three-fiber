@@ -2,7 +2,6 @@
 
 
 
-
 export const globeConfig = {
   pointSize: 4,
   globeColor: "#062056",
@@ -25,7 +24,7 @@ export const globeConfig = {
   autoRotate: true,
   autoRotateSpeed: 0.5,
 };
-export const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+export const colors = ["#06b6d4", "#3b82f6", "#6366f1", "#577DF3", "#16a34a" ];
 export const sampleArcs = [
   {
     order: 1,

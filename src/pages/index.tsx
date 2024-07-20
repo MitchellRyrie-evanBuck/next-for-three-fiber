@@ -9,10 +9,14 @@ import fifth from "@/static/images/fifth.png"
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import ArrowIcon from '@/static/svg/arrow-down-bold';
+import { useRouter } from 'next/router';
+
 
 export default function Home() {
   const [animation, setAnimation] = useState('down');
   const animationOptions = ['down', 'up', 'show'];
+  const router = useRouter();
+  router.push('/main');
 
   useEffect(() => {
     gsap.registerPlugin(Observer);

@@ -10,7 +10,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 218, 219, 220;
   --background-end-rgb: 245, 245, 247;
-  --background-trend: #f6f9ff;
+  --background-trend: #FFF;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -151,4 +151,15 @@ a, .best {
   font-family: 'logoBrush';
   src: url('/fonts/Reey-Regular.otf') format('truetype');
   /* 添加其他样式属性，例如 font-weight, font-style 等 */
+}
+
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { CardBody, CardContainer, CardItem } from "@/components/aceternityUi/3d-card";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { globeConfig, colors, sampleArcs } from "@/data/blobe"
-const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
+const World = dynamic(() => import("@/components/aceternityUi/globe").then((m) => m.World), {
   ssr: false,
 });
 
@@ -58,15 +58,6 @@ export default function ThreeDCardDemo() {
           </div>
         </CardBody>
       </CardContainer>
-
-      <div className="mt-6">
-        <div className="flex flex-row items-center justify-center py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
-              <World
-                globeConfig={globeConfig}
-                data={sampleArcs}
-              />
-          </div>
-      </div>
 
     </div>
   );
