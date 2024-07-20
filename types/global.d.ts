@@ -8,3 +8,9 @@ declare module 'class-variance-authority' {
   // This is a placeholder example
   export function someFunction(args: any): any;
 }
+
+declare module "@react-three/fiber" {
+  interface ThreeElements {
+    threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
+  }
+}

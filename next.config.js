@@ -19,6 +19,8 @@ const nextConfig = {
   },
   webpack: (config, options) => {
     config.resolve.alias['@'] = path.resolve(__dirname);
+    config.resolve.alias['#'] = path.resolve(path.join(__dirname, 'public'));
+
     config.module.rules.push({
       test: /\.md$/,
       use: ['raw-loader', 'remark-loader'],
