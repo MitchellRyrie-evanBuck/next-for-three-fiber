@@ -14,13 +14,7 @@ import { Switch } from "@/components/ui/switch"
 import { MoonIcon, SunIcon, GitHubLogoIcon, AvatarIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
+import { MultiStepLoaderDemo } from "@/components/layout/header/hooks/useUser"
 
 const Header: FC = () => {
   const [containerHeight, setContainerHeight] = useState(60);
@@ -54,7 +48,8 @@ const Header: FC = () => {
 
   return (
     <motion.div
-      className={`${styles.header}`}
+      className={`${styles.header}
+        `}
       data-aos={`fade-down`}
       layout
       animate={animationControls}
@@ -85,7 +80,7 @@ const Header: FC = () => {
             <SunIcon color='#000' width={20} height={20} />
           </div>
           <div className={`${styles.tagger} cursor-pointer  pl-4`}>
-          <AvatarIcon  color='#000' width={20} height={20} />
+          <MultiStepLoaderDemo  />
           </div>
         </div>
       </div>

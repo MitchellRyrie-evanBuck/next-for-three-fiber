@@ -11,14 +11,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const displayList = []
   const [showHeader, setShowHeader] = useState(true);
   const [pathName, setPathName] = useState<string>('');
-
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isRoot, setIsRoot] = useState(true)
+  const [isFooter, setIsFooter] = useState(true)
+
   const router = useRouter()
   const [scrollDirection, setScrollDirection] = useState<number>(0); 
-
+  const footerArray = ['/', '/main']
   useEffect(() => {
     setIsRoot(router.pathname === '/' ? true : false)
+    setIsFooter(footerArray.includes(router.pathname) ? true : false)
+
     setPathName(router.pathname)
   }, )
 
@@ -80,7 +83,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </Element>
-      {!isRoot  &&  <Footer />}
+      {!isRoot && !isFooter  &&  <Footer />}
     </>
   )
 }

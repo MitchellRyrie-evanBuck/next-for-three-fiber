@@ -3,7 +3,7 @@
 
 
 export const globeConfig = {
-  pointSize: 4,
+  pointSize: 2,
   globeColor: "#062056",
   showAtmosphere: true,
   atmosphereColor: "#FFFFFF",
@@ -12,14 +12,14 @@ export const globeConfig = {
   emissiveIntensity: 0.1,
   shininess: 0.9,
   polygonColor: "rgba(255,255,255,0.7)",
-  ambientLight: "#38bdf8",
+  ambientLight: "#577DF3",
   directionalLeftLight: "#ffffff",
   directionalTopLight: "#ffffff",
   pointLight: "#ffffff",
   arcTime: 1000,
   arcLength: 0.9,
   rings: 1,
-  maxRings: 3,
+  maxRings: 8,
   initialPosition: { lat: 22.3193, lng: 114.1694 },
   autoRotate: true,
   autoRotateSpeed: 0.5,
