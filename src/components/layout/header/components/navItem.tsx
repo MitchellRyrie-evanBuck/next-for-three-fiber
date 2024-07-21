@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from '../../styles/header.module.scss'
+import { useThemeMode } from '@/hooks/useThemeMode';
 
 interface InNavItem {
   href: string;
@@ -13,6 +14,7 @@ interface InNavItem {
 const NavItem: FC<InNavItem> = ({ href, children, onMouseEnter }) => {
   const router = useRouter();
   const isActive = router.pathname === href;
+  const { currentTheme, isDarkMode, isLightMode, toggleTheme } = useThemeMode()
 
   return (
     <Link href={href} className="h-full pr-4 pl-4 cursor-pointer flex items-center justify-center">
@@ -23,7 +25,7 @@ const NavItem: FC<InNavItem> = ({ href, children, onMouseEnter }) => {
         layout
         onHoverStart={onMouseEnter}
       >
-        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black h-full flex items-center justify-center`} >{children}</span>
+        <span className={`${isActive ? styles.dotActive : styles.dotInactive} text-black dark:text-white  h-full flex items-center justify-center`} >{children}</span>
       </motion.div>
     </Link>
   );

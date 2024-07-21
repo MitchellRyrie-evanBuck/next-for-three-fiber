@@ -1,11 +1,5 @@
 .header {
-  background-color: var(--primary);
   backdrop-filter: saturate(20%) blur(1px);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  box-sizing: border-box;
   --globalnav-backdrop-filter: saturate(100%) blur(10px);
   backdrop-filter: var(--globalnav-backdrop-filter);
   background: var(--globalnav-background);

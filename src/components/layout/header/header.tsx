@@ -12,7 +12,7 @@ import NavItem from './components/navItem'
 import More from './components/more'
 import { Switch } from "@/components/ui/switch"
 import { MoonIcon, SunIcon, GitHubLogoIcon, AvatarIcon } from "@radix-ui/react-icons"
-import { useTheme } from "next-themes"
+import { useThemeMode } from '@/hooks/useThemeMode';
 import { Button } from "@/components/ui/button"
 import { MultiStepLoaderDemo } from "@/components/layout/header/hooks/useUser"
 
@@ -30,7 +30,7 @@ const Header: FC = () => {
   }, [currentHover]); // 每次 currentHover 改变时触发 useEffect
 
   const router = useRouter()
-  const { setTheme } = useTheme()
+  const { currentTheme, isDarkMode, isLightMode, toggleTheme } = useThemeMode()
 
   const handleThmetChange = (val: boolean) => {
     setIsDark(val)
@@ -49,6 +49,7 @@ const Header: FC = () => {
   return (
     <motion.div
       className={`${styles.header}
+        fixed inset-0 bg-[var(--primary)] dark:bg-black box-border
         `}
       data-aos={`fade-down`}
       layout
@@ -60,7 +61,7 @@ const Header: FC = () => {
         <div className={`${styles.headerLeft} h-full flex items-center `}  >
           <Link href="/" >
             {/* <Image src={userLogo} className='h-9 w-9 rounded-full ' alt="" /> */}
-            <div data-aos="fade-right" className='text-black'>Mitchell Ryrie</div>
+            <div data-aos="fade-right" className='text-black dark:text-white'>Mitchell Ryrie</div>
           </Link>
           <div className='pl-6 font-600 text-xl ' >  </div>
         </div>
@@ -68,15 +69,15 @@ const Header: FC = () => {
         <div className="flex items-center justify-between  box-border  h-full">
           <NavItem href="/main" onMouseEnter={() => handleMouseEnter('')} >Home</NavItem>
           <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >3D</NavItem>
-          <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>文档</NavItem>
-
+          <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>literature</NavItem>
+          <NavItem href="/template" onMouseEnter={() => handleMouseEnter('')}>Template</NavItem>
           <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web3</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >服务</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >发现</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Service</div>
+          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >Discover</div>
           <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >
               <GitHubLogoIcon className='block' width={20} height={20} />
           </NavItem>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`}>
+          <div className={`${styles.tagger} cursor-pointer  pr-2 pl-2`}>
             <SunIcon color='#000' width={20} height={20} />
           </div>
           <div className={`${styles.tagger} cursor-pointer  pl-4`}>
