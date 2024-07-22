@@ -9,7 +9,7 @@
   transition: all 600ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
   // mix-blend-mode: exclusion;
   height: var(--head-height);
-  
+
 }
 
 .transition-header {
@@ -32,7 +32,7 @@
     stroke;
   transition-duration: .15s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-// box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.12);
+  // box-shadow: 0px 20px 20px -20px rgba(0, 0, 0, 0.12);
 }
 
 .transition-header-bg {
@@ -48,10 +48,6 @@
 
 }
 
-.dotActive,
-.dotInactive {
-  position: relative;
-}
 
 .dotActive::after {
   content: '';
@@ -62,8 +58,17 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
+  background: black;
 }
 
-.dotActive::after {
-  background-color: black;
+.dotDarkActive::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: black;
 }

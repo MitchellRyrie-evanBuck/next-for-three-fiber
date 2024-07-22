@@ -135,6 +135,22 @@ a, .best {
   background-clip: text;
 }
 
+.dark{
+  a,
+  .best {
+    text-decoration: none;
+    background-image: radial-gradient(var(--lighting-highlight-color), var(--lighting-color), var(--lighting-color));
+    background-size: var(--lighting-size) var(--lighting-size);
+    background-repeat: no-repeat;
+    background-position-x: calc(var(--x) - var(--positionX) - calc(var(--lighting-size) / 2));
+    background-position-y: calc(var(--y) - var(--positionY) - calc(var(--lighting-size) / 2));
+    background-color: white;
+    color: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -71,17 +71,17 @@ const Header: FC = () => {
           <NavItem href="/threefiber" onMouseEnter={() => handleMouseEnter('')} >3D</NavItem>
           <NavItem href="/note" onMouseEnter={() => handleMouseEnter('')}>literature</NavItem>
           <NavItem href="/template" onMouseEnter={() => handleMouseEnter('')}>Template</NavItem>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web3</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Service</div>
-          <div className={`${styles.tagger} cursor-pointer  pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >Discover</div>
+          <div className={`${styles.tagger} cursor-pointer text-black dark:text-white pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Web')} >Web3</div>
+          <div className={`${styles.tagger} cursor-pointer text-black dark:text-white pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('Server')} >Service</div>
+          <div className={`${styles.tagger} cursor-pointer text-black dark:text-white pr-4 pl-4`} onMouseEnter={() => handleMouseEnter('more')} >Discover</div>
           <NavItem href="/github" onMouseEnter={() => handleMouseEnter('')} >
-              <GitHubLogoIcon className='block' width={20} height={20} />
+            <GitHubLogoIcon color={isLightMode ? '#000' : '#FFF'} className='block' width={20} height={20} />
           </NavItem>
           <div className={`${styles.tagger} cursor-pointer  pr-2 pl-2`}>
-            <SunIcon color='#000' width={20} height={20} />
+            <SunIcon color={isLightMode ? '#000' : '#FFF'} width={20} height={20} />
           </div>
           <div className={`${styles.tagger} cursor-pointer  pl-4`}>
-          <MultiStepLoaderDemo  />
+            <MultiStepLoaderDemo />
           </div>
         </div>
       </div>
