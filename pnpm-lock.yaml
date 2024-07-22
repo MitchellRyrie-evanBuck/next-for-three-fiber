@@ -252,6 +252,9 @@ importers:
       '@types/aos':
         specifier: ^3.0.4
         version: 3.0.7
+      '@types/canvas-confetti':
+        specifier: ^1.6.4
+        version: 1.6.4
       '@types/node':
         specifier: 20.14.5
         version: 20.14.5
@@ -1791,6 +1794,9 @@ packages:
 
   '@types/aos@3.0.7':
     resolution: {integrity: sha512-sEhyFqvKauUJZDbvAB3Pggynrq6g+2PS4XB3tmUr+mDL1gfDJnwslUC4QQ7/l8UD+LWpr3RxZVR/rHoZrLqZVg==}
+
+  '@types/canvas-confetti@1.6.4':
+    resolution: {integrity: sha512-fNyZ/Fdw/Y92X0vv7B+BD6ysHL4xVU5dJcgzgxLdGbn8O3PezZNIJpml44lKM0nsGur+o/6+NZbZeNTt00U1uA==}
 
   '@types/chroma-js@2.4.4':
     resolution: {integrity: sha512-/DTccpHTaKomqussrn+ciEvfW4k6NAHzNzs/sts1TCqg333qNxOhy8TNIoQCmbGG3Tl8KdEhkGAssb1n3mTXiQ==}
@@ -6987,6 +6993,8 @@ snapshots:
   '@tweenjs/tween.js@23.1.2': {}
 
   '@types/aos@3.0.7': {}
+
+  '@types/canvas-confetti@1.6.4': {}
 
   '@types/chroma-js@2.4.4': {}
 

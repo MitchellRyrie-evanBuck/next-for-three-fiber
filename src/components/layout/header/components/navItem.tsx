@@ -25,7 +25,7 @@ const NavItem: FC<InNavItem> = ({ href, children, onMouseEnter }) => {
         layout
         onHoverStart={onMouseEnter}
       >
-        <span className={`${isActive ?   styles.dotActive : ''} ${isLightMode ? styles['is-dark'] : styles['is-light'] } relative text-black dark:text-white  h-full flex items-center justify-center`} >{children}</span>
+        <span className={`${isActive && isLightMode ? styles.dotActive : isActive && isDarkMode ? styles.dotDarkActive : ''  } ${isLightMode ? styles['is-dark'] : styles['is-light'] } relative text-black dark:text-white  h-full flex items-center justify-center`} >{children}</span>
       </motion.div>
     </Link>
   );
