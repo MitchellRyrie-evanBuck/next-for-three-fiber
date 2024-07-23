@@ -8,7 +8,7 @@ import { WavyBackground } from "@/components/aceternityUi/wavy-background"
 import { SparklesCore } from "@/components/aceternityUi/sparkles"
 import { LampContainer } from "@/components/aceternityUi/lamp";
 import { useThemeMode } from '@/hooks/useThemeMode';
-import confetti from 'canvas-confetti';
+// import confetti from 'canvas-confetti';
 
 const World = dynamic(() => import("@/components/aceternityUi/globe").then((m) => m.World), {
   ssr: false,
