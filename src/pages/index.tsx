@@ -16,7 +16,7 @@ export default function Home() {
   const [animation, setAnimation] = useState('down');
   const animationOptions = ['down', 'up', 'show'];
   const router = useRouter();
-  router.push('/main');
+  // router.push('/main');
 
   useEffect(() => {
     gsap.registerPlugin(Observer);
