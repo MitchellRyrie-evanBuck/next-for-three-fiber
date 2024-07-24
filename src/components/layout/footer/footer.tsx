@@ -1,11 +1,13 @@
 import { FC } from 'react'
-import styles from '../styles/footer.module.scss'
-
 
 const Header: FC = () => {
   return (
     <>
-      <div className={`${styles.footer} text-black `}  >
+      <div className="text-black dark:text-white
+        leading-[var(--foot-height)]
+        min-h-[var(--foot-height)]
+        text-center
+      "  >
         copyright @@@
       </div>
     </>
