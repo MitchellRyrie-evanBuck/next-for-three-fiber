@@ -25,7 +25,6 @@ export default function ThreeDCardDemo() {
           </CardItem>
         </CardBody>
       </CardContainer>
-
     </div>
   );
 }
