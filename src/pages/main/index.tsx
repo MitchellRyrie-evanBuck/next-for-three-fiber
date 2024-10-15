@@ -18,7 +18,7 @@ export default function Home() {
   const buttonRef = useRef(null)
   const { currentTheme, isDarkMode, isLightMode, toggleTheme } = useThemeMode()
   const handleConfetti = () => {
-    console.log("buttonRef", buttonRef)
+    // console.log("buttonRef", buttonRef)
     // confetti({
     // });
   };
