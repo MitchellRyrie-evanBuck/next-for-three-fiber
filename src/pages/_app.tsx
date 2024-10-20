@@ -46,7 +46,6 @@ export default function App({ Component, pageProps, ...result }: AppProps) {
   }
 
   useEffect(() => {
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     ;(document as any)
       .querySelector('body')
       // biome-ignore lint/suspicious/noExplicitAny: <explanation>
