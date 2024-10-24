@@ -48,7 +48,6 @@ export default function App({ Component, pageProps, ...result }: AppProps) {
   useEffect(() => {
     ;(document as any)
       .querySelector('body')
-      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       .addEventListener('mousemove', (e: any) => {
         e.currentTarget.style.setProperty('--x', `${e.clientX}px`)
         e.currentTarget.style.setProperty('--y', `${e.clientY}px`)
